@@ -1,0 +1,46 @@
+#page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.block {
+  background-color: #AFEEEE;
+  border-radius: 10px;
+  min-width:100px;
+  width: 18vw;
+  height: 22vh;
+  text-align: center;
+  border: 1px solid black;
+  margin: 50px 0 0 50px;
+  max-width: 200px;
+  overflow-x:hidden;
+  box-shadow: 4px 4px gray;
+}
+
+.remove, .edit {
+  margin: 12px 0 0 60px;
+  background-color: lightgrey;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 2px 2px gray;
+  border: none;
+  padding: 2px;
+}
+
+.ulist {
+  text-align: left;
+  margin: 0 0 0 5px;
+}
+
+li{
+  margin: -5px 0 0 10px;
+}
+
+label {
+  width: 20%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+

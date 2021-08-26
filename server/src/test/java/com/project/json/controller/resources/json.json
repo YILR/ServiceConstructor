@@ -1,0 +1,1673 @@
+[
+  {
+    "id": "s_main",
+    "type": "INFO",
+    "header": "Принятие на учет граждан в качестве нуждающихся в жилых помещениях",
+    "components": [
+      {
+        "id": "MainInfo",
+        "type": "InfoScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_Goal",
+        "conditions": [
+          {
+            "field": "MainInfo",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_FL_RecipientData",
+    "type": "UNIQUE",
+    "header": "Сведения о заявителе",
+    "components": [
+      {
+        "id": "RecipientData",
+        "type": "",
+        "label": "",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s1_KP_PUZh_01",
+        "conditions": [
+          {
+            "field": "q1_Goal.value",
+            "value": "1",
+            "predicate": "equals"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s2_DetailsResidentialBuilding",
+        "conditions": [
+          {
+            "field": "q1_Goal.value",
+            "value": "1",
+            "predicate": "notEquals"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_KP_OA_01",
+    "type": "QUESTION",
+    "header": "Кто обращается за услугой?",
+    "components": [
+      {
+        "id": "q_KP_OA_01",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Заявитель",
+            "value": "1"
+          },
+          {
+            "label": "Представитель",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_FL_RecipientData",
+        "conditions": [
+          {
+            "field": "q_KP_OA_01",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_FL_RepresentativeData",
+        "conditions": [
+          {
+            "field": "q_KP_OA_01",
+            "value": "2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_FL_RepresentativeData",
+    "type": "UNIQUE",
+    "header": "Сведения о представителе",
+    "components": [
+      {
+        "id": "RepresentativeData",
+        "type": "",
+        "label": "",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_FL_RecipientDataManual",
+        "conditions": [
+          {
+            "field": "RepresentativeFactAddressData",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_IP_RepresentativeData",
+    "type": "UNIQUE",
+    "header": "Сведения о представителе",
+    "components": [
+      {
+        "id": "RepresentativeBusinessmanData",
+        "type": "",
+        "label": "",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_FL_RecipientDataManual",
+        "conditions": [
+          {
+            "field": "RepresentativeRegAddressData",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_UL_RepresentativeData",
+    "type": "UNIQUE",
+    "header": "Сведения о представителе",
+    "components": [
+      {
+        "id": "RepresentativeLegalData",
+        "type": "",
+        "label": "",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_FL_RecipientDataManual",
+        "conditions": [
+          {
+            "field": "RepresentativeEmailData",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_FL_RecipientDataManual",
+    "type": "CUSTOM",
+    "header": "Сведения о заявителе",
+    "components": [
+      {
+        "id": "LastName",
+        "type": "",
+        "label": "",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s1_KP_PUZh_01",
+        "conditions": [
+          {
+            "field": "q1_Goal.value",
+            "value": "1",
+            "predicate": "equals"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s2_DetailsResidentialBuilding",
+        "conditions": [
+          {
+            "field": "q1_Goal.value",
+            "value": "1",
+            "predicate": "notEquals"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_Goal",
+    "type": "QUESTION",
+    "header": "Цель обращения",
+    "components": [
+      {
+        "id": "q1_Goal",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Постановка на учет граждан, нуждающихся в предоставлении жилого помещения",
+            "value": "1"
+          },
+          {
+            "label": "Внесение изменений в сведения о гражданах, нуждающихся в предоставлении жилого помещения",
+            "value": "2"
+          },
+          {
+            "label": "Предоставление информации о движении в очереди граждан, нуждающихся в предоставлении жилого помещения",
+            "value": "3"
+          },
+          {
+            "label": "Снятие с учета граждан, нуждающихся в предоставлении жилого помещения ",
+            "value": "4"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_KP_OA_01",
+        "conditions": [
+          {
+            "field": "orgType",
+            "predicate": ""
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_IP_RepresentativeData",
+        "conditions": [
+          {
+            "field": "orgType",
+            "value": "BUSINESS",
+            "predicate": "equals"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_UL_RepresentativeData",
+        "conditions": [
+          {
+            "field": "orgType",
+            "value": "LEGAL",
+            "predicate": "equals"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_UL_RepresentativeData",
+        "conditions": [
+          {
+            "field": "orgType",
+            "value": "AGENCY",
+            "predicate": "equals"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s2_DetailsResidentialBuilding",
+    "type": "CUSTOM",
+    "header": "Реквизиты решение о принятии на учет в качестве нуждающихся в жилом помещении",
+    "components": [
+      {
+        "id": "NumberBuilding",
+        "type": "StringInput",
+        "label": "Номер",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": true,
+        "atLeastOne": false
+      },
+      {
+        "id": "DateBuilding",
+        "type": "DateInput",
+        "label": "Дата",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      },
+      {
+        "id": "BodyDecisionBuilding",
+        "type": "StringInput",
+        "label": "Орган принявший решение",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_CompetentOrganization",
+        "conditions": [
+          {
+            "field": "q1_Goal.value",
+            "value": "2",
+            "predicate": "notEquals"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s3_InformationChanged",
+        "conditions": [
+          {
+            "field": "q1_Goal",
+            "value": "2",
+            "predicate": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s1_KP_PUZh_01",
+    "type": "QUESTION",
+    "header": "Фамилия, имя, отчество заявителя изменялись?",
+    "components": [
+      {
+        "id": "q2_KP_PUZh_01",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Не изменялись",
+            "value": "1"
+          },
+          {
+            "label": "Изменялись",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s3_KP_PUZh_03",
+        "conditions": [
+          {
+            "field": "q2_KP_PUZh_01",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s2_KP_PUZh_02",
+        "conditions": [
+          {
+            "field": "q2_KP_PUZh_01",
+            "value": "2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s3_KP_PUZh_03",
+    "type": "CUSTOM",
+    "header": "Категория заявителя",
+    "components": [
+      {
+        "id": "IsPoorCitizens",
+        "type": "CheckBox",
+        "label": "Малоимущие граждане",
+        "required": true,
+        "field": [
+          {
+            "label": "Не изменялись",
+            "value": "1"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsPreferentialCategory",
+        "type": "CheckBox",
+        "label": "Наличие льготной категории ",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s7_DecisionIsPoorCitizens",
+        "conditions": [
+          {
+            "field": "IsPoorCitizens",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s8_KP_PUZh_04",
+        "conditions": [
+          {
+            "field": "IsPoorCitizens",
+            "value": "false"
+          },
+          {
+            "field": "IsPreferentialCategory",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s2_KP_PUZh_02",
+    "type": "QUESTION",
+    "header": "Что изменялось у заявителя?",
+    "components": [
+      {
+        "id": "q3_KP_PUZh_02",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Фамилия",
+            "value": "1"
+          },
+          {
+            "label": "Имя",
+            "value": "2"
+          },
+          {
+            "label": "Отчество",
+            "value": "3"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s4_RecipientLastName",
+        "conditions": [
+          {
+            "field": "q3_KP_PUZh_02",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s5_RecipientFirstname",
+        "conditions": [
+          {
+            "field": "q3_KP_PUZh_02",
+            "value": "2"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s6_RecipientMiddlename",
+        "conditions": [
+          {
+            "field": "q3_KP_PUZh_02",
+            "value": "3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s4_RecipientLastName",
+    "type": "REPEATABLE",
+    "header": "Предоставить фамилию до изменения",
+    "components": [
+      {
+        "id": "RecipientLastName",
+        "type": "StringInput",
+        "label": "Фамилия",
+        "required": true,
+        "field": [
+          {
+            "label": "(^[-а-яёЁА-Я\\ ]+$)|(^$)",
+            "value": "Разрешен ввод кириллицы, пробела, знака «-» (тире)"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s3_KP_PUZh_03",
+        "conditions": [
+          {
+            "field": "RecipientLastName"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s5_RecipientFirstname",
+    "type": "REPEATABLE",
+    "header": "Предоставить имя до изменения",
+    "components": [
+      {
+        "id": "RecipientFirstname",
+        "type": "StringInput",
+        "label": "Имя",
+        "required": true,
+        "field": [
+          {
+            "label": "(^[-а-яёЁА-Я\\ ]+$)|(^$)",
+            "value": "Разрешен ввод кириллицы, пробела, знака «-» (тире)"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s3_KP_PUZh_03",
+        "conditions": [
+          {
+            "field": "RecipientFirstname"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s6_RecipientMiddlename",
+    "type": "REPEATABLE",
+    "header": "Предоставить отчество до изменения",
+    "components": [
+      {
+        "id": "RecipientMiddlename",
+        "type": "StringInput",
+        "label": "Отчество ",
+        "required": true,
+        "field": [
+          {
+            "label": "(^[-а-яёЁА-Я\\ ]+$)|(^$)",
+            "value": "Разрешен ввод кириллицы, пробела, знака «-» (тире)"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s3_KP_PUZh_03",
+        "conditions": [
+          {
+            "field": "RecipientMiddlename"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s8_KP_PUZh_04",
+    "type": "CUSTOM",
+    "header": "Причина отнесения заявителя к льготной категории ",
+    "components": [
+      {
+        "id": "IsDisability",
+        "type": "CheckBox",
+        "label": "Наличие инвалидности ",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsMilitary",
+        "type": "CheckBox",
+        "label": "Участие в войне, боевых действиях, особые заслуги перед государством",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsSpecialRisk",
+        "type": "CheckBox",
+        "label": "Ликвидация радиационных аварий, служба в подразделении особого риска",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsRepression",
+        "type": "CheckBox",
+        "label": "Политические репрессии ",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsOtherReasons",
+        "type": "CheckBox",
+        "label": "Иные причины",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s9_KP_PUZh_05",
+        "conditions": [
+          {
+            "field": "IsDisability",
+            "value": "true",
+            "predicate": "null"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s10_KP_PUZh_06",
+        "conditions": [
+          {
+            "field": "IsDisability",
+            "value": "false",
+            "predicate": "null"
+          },
+          {
+            "field": "IsMilitary",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s11_KP_PUZh_07",
+        "conditions": [
+          {
+            "field": "IsDisability",
+            "value": "false"
+          },
+          {
+            "field": "IsMilitary",
+            "value": "false"
+          },
+          {
+            "field": "IsSpecialRisk",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s12_KP_PUZh_08",
+        "conditions": [
+          {
+            "field": "IsDisability",
+            "value": "false"
+          },
+          {
+            "field": "IsMilitary",
+            "value": "false"
+          },
+          {
+            "field": "IsSpecialRisk",
+            "value": "false"
+          },
+          {
+            "field": "IsRepression",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s13_KP_PUZh_09",
+        "conditions": [
+          {
+            "field": "IsDisability",
+            "value": "false"
+          },
+          {
+            "field": "IsMilitary",
+            "value": "false"
+          },
+          {
+            "field": "IsSpecialRisk",
+            "value": "false"
+          },
+          {
+            "field": "IsRepression",
+            "value": "false"
+          },
+          {
+            "field": "IsOtherReasons",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s9_KP_PUZh_05",
+    "type": "CUSTOM",
+    "header": "Категория заявителя",
+    "components": [
+      {
+        "id": "IsDisabledPeople",
+        "type": "CheckBox",
+        "label": "Инвалиды",
+        "required": true,
+        "field": [
+          {
+            "label": "Не изменялись",
+            "value": "1"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsDisabledChildren",
+        "type": "CheckBox",
+        "label": "Семьи, имеющие детей-инвалидов",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s23_ChildList1",
+        "conditions": [
+          {
+            "field": "IsDisabledChildren",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "IsDisabledChildren",
+            "value": "false"
+          },
+          {
+            "field": "IsDisability",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "IsDisabledChildren",
+            "value": "false"
+          },
+          {
+            "field": "IsDisability",
+            "value": "false"
+          },
+          {
+            "field": "IsMilitary",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "IsDisabledChildren",
+            "value": "false"
+          },
+          {
+            "field": "IsDisability",
+            "value": "false"
+          },
+          {
+            "field": "IsMilitary",
+            "value": "false"
+          },
+          {
+            "field": "IsSpecialRisk",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s10_KP_PUZh_06",
+    "type": "QUESTION",
+    "header": "Категория заявителя",
+    "components": [
+      {
+        "id": "q4_KP_PUZh_06",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Участник событий, лицо, имеющее заслуги",
+            "value": "1"
+          },
+          {
+            "label": "Член семьи погибшего (умершего) участника",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "conditions": [
+          {}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s11_KP_PUZh_07",
+    "type": "QUESTION",
+    "header": "Категория заявителя",
+    "components": [
+      {
+        "id": "q5_KP_PUZh_07",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Участник событий",
+            "value": "1"
+          },
+          {
+            "label": "Член семьи погибшего (умершего) участника",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "conditions": [
+          {}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s12_KP_PUZh_08",
+    "type": "QUESTION",
+    "header": "Категория заявителя",
+    "components": [
+      {
+        "id": "q6_KP_PUZh_08",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Реабилитированные лица",
+            "value": "1"
+          },
+          {
+            "label": "Лица, признанные пострадавшими от политических репрессий",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "conditions": [
+          {}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s13_KP_PUZh_09",
+    "type": "CUSTOM",
+    "header": "Категория заявителя",
+    "components": [
+      {
+        "id": "IsLargeFamily",
+        "type": "CheckBox",
+        "label": "Многодетная семья",
+        "required": true,
+        "field": [
+          {
+            "label": "Многодетная семья",
+            "value": "1"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsLaborActivity",
+        "type": "CheckBox",
+        "label": "Категории, связанные с трудовой деятельностью",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsOrphanedChildren",
+        "type": "CheckBox",
+        "label": "Дети-сироты или дети, оставшиеся без попечения родителей",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      },
+      {
+        "id": "IsChronicDiseases",
+        "type": "CheckBox",
+        "label": "Граждане, страдающие хроническими заболеваниями",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      },
+      {
+        "id": "IsOtherCategory",
+        "type": "CheckBox",
+        "label": "Иная категория",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "conditions": [
+          {}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s14_KP_PUZh_10",
+    "type": "QUESTION",
+    "header": "Основание для постановки на учет заявителя",
+    "components": [
+      {
+        "id": "q7_KP_PUZh_10",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Не является нанимателем  (собственником) или членом семьи нанимателя (собственника) жилого помещения ",
+            "value": "1"
+          },
+          {
+            "label": "Является нанимателем или членом семьи нанимателя жилого помещения по договору социального найма, обеспеченным общей площадью на 1 члена семьи менее учетной нормы",
+            "value": "2"
+          },
+          {
+            "label": "Является нанимателем или членом семьи нанимателя жилого помещения социального использования, обеспеченным общей площадью на 1 члена семьи менее учетной нормы",
+            "value": "3"
+          },
+          {
+            "label": "Является собственником или членом семьи собственника жилого помещения, обеспеченным общей площадью на 1 члена семьи менее учетной нормы",
+            "value": "4"
+          },
+          {
+            "label": "Заявитель проживает в помещении, не отвечающем установленным для жилого помещения требованиям",
+            "value": "5"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s17_KP_PUZh_13",
+        "conditions": [
+          {
+            "field": "q7_KP_PUZh_10",
+            "value": "1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s15_KP_PUZh_11",
+    "type": "QUESTION",
+    "header": "Наймодатель жилого помещения",
+    "components": [
+      {
+        "id": "q8_KP_PUZh_11",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Орган государственной власти",
+            "value": "1"
+          },
+          {
+            "label": "Орган местного самоуправления",
+            "value": "2"
+          },
+          {
+            "label": "Организация",
+            "value": "3"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "conditions": [
+          {}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s16_KP_PUZh_12",
+    "type": "QUESTION",
+    "header": "Право собственника жилого помещения зарегистрировано в ЕГРН?",
+    "components": [
+      {
+        "id": "q9_KP_PUZh_12",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Зарегистрировано",
+            "value": "1"
+          },
+          {
+            "label": "Не зарегистрировано ",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "conditions": [
+          {}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s17_KP_PUZh_13",
+    "type": "QUESTION",
+    "header": "С кем проживает заявитель?",
+    "components": [
+      {
+        "id": "q10_KP_PUZh_13",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Проживает один",
+            "value": "1"
+          },
+          {
+            "label": "Совместно с членами семьи",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_CompetentOrganization",
+        "conditions": [
+          {
+            "field": "q10_KP_PUZh_13",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s18_KP_PUZh_14",
+        "conditions": [
+          {
+            "field": "q10_KP_PUZh_13",
+            "value": "2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s18_KP_PUZh_14",
+    "type": "CUSTOM",
+    "header": "Члены семьи, с которыми проживает заявитель ",
+    "components": [
+      {
+        "id": "IsSpouse",
+        "type": "CheckBox",
+        "label": "Супруг (супруга)",
+        "required": true,
+        "field": [
+          {
+            "label": "Многодетная семья",
+            "value": "1"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsChildren",
+        "type": "CheckBox",
+        "label": "Дети",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": true
+      },
+      {
+        "id": "IsParents",
+        "type": "CheckBox",
+        "label": "Родители",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      },
+      {
+        "id": "IsOtherRelatives",
+        "type": "CheckBox",
+        "label": "Иные родственники",
+        "required": true,
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "conditions": [
+          {}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s19_KP_PUZh_15",
+    "type": "QUESTION",
+    "header": "Фамилия, имя, отчество супруги (супруга) изменялись?",
+    "components": [
+      {
+        "id": "q11_KP_PUZh_15",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Не изменялись",
+            "value": "1"
+          },
+          {
+            "label": "Изменялись",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "conditions": [
+          {}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s20_KP_PUZh_16",
+    "type": "QUESTION",
+    "header": "Что изменялось у супруга?",
+    "components": [
+      {
+        "id": "q12_KP_PUZh_16",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Фамилия",
+            "value": "1"
+          },
+          {
+            "label": "Имя",
+            "value": "2"
+          },
+          {
+            "label": "Отчество",
+            "value": "3"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s21_KP_PUZh_17",
+    "type": "QUESTION",
+    "header": "Фамилия, имя, отчество изменялись ?",
+    "components": [
+      {
+        "id": "q13_KP_PUZh_17",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Не изменялись",
+            "value": "1"
+          },
+          {
+            "label": "Изменялись",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "conditions": [
+          {}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s22_KP_PUZh_18",
+    "type": "QUESTION",
+    "header": "Что изменялось?",
+    "components": [
+      {
+        "id": "q14_KP_PUZh_18",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Фамилия",
+            "value": "1"
+          },
+          {
+            "label": "Имя",
+            "value": "2"
+          },
+          {
+            "label": "Отчество",
+            "value": "3"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s23_KP_PUZh_19",
+    "type": "QUESTION",
+    "header": "Сведение о рождении ребенка",
+    "components": [
+      {
+        "id": "q15_KP_PUZh_19",
+        "type": "QuestionScr",
+        "label": "",
+        "required": true,
+        "field": [
+          {
+            "label": "Ребенок не достиг 14 лет",
+            "value": "1"
+          },
+          {
+            "label": "Ребенок достиг 14 лет",
+            "value": "2"
+          }
+        ],
+        "fileType": {},
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s3_InformationChanged",
+    "type": "UNIQUE",
+    "header": "Загрузите документы",
+    "components": [
+      {
+        "id": "f_InformationChanged",
+        "type": "FileUploadComponent",
+        "label": "Документы, подлежащие изменению: прежние данные и новые данные",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {
+          "JPEG": true,
+          "JPG": true,
+          "PNG": true,
+          "PDF": true,
+          "RAR": true,
+          "ZIP": true,
+          "BMP": true,
+          "TIFF": true,
+          "SIG": true
+        },
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_CompetentOrganization",
+        "conditions": [
+          {
+            "field": "f_InformationChanged"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s7_DecisionIsPoorCitizens",
+    "type": "UNIQUE",
+    "header": "Загрузите документы",
+    "components": [
+      {
+        "id": "f_DecisionIsPoorCitizens",
+        "type": "FileUploadComponent",
+        "label": "Решение о признании заявителя малоимущим",
+        "required": true,
+        "field": [
+          {}
+        ],
+        "fileType": {
+          "JPEG": true,
+          "JPG": true,
+          "PNG": true,
+          "PDF": true,
+          "RAR": true,
+          "ZIP": true,
+          "BMP": false,
+          "TIFF": false,
+          "SIG": false
+        },
+        "maxSize": 50,
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s14_KP_PUZh_10",
+        "conditions": [
+          {
+            "field": "IsPreferentialCategory",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s8_KP_PUZh_04",
+        "conditions": [
+          {
+            "field": "IsPreferentialCategory",
+            "value": "true"
+          }
+        ]
+      }
+    ]
+  }
+]

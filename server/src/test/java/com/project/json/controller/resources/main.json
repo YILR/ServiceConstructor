@@ -1,0 +1,29 @@
+{
+  "id": "s_main",
+  "type": "INFO",
+  "header": "",
+  "components": [
+    {
+      "id": "MainInfo",
+      "type": "InfoScr",
+      "label": "",
+      "required": true,
+      "field": [
+        {}
+      ],
+      "fileType": {},
+      "maxSize": 50
+    }
+  ],
+  "screenRules": [
+    {
+      "nextDisplay": "s_Goal",
+      "conditions": [
+        {
+          "field": "MainInfo",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <h1 >
+    <a [routerLink]="['/']">Генерация Json</a>
+  </h1>
+  <ul>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/table']">Таблицы</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/screen']">Добавить экран</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+

@@ -1,0 +1,2639 @@
+{
+  "service": "",
+  "init": "ServiceRounting",
+  "draftTtl": 90,
+  "saveDraftModeEnabled": true,
+  "screens": [
+    {
+      "id": "ServiceRounting",
+      "name": "",
+      "type": "EMPTY",
+      "header": "",
+      "components": [
+        "ServiceRountingRequest"
+      ],
+      "logicComponents": [
+        "CheckRegion"
+      ]
+    },
+    {
+      "id": "s_main_error",
+      "name": "Услуга недоступна в вашем регионе",
+      "type": "INFO",
+      "header": "Услуга недоступна в вашем регионе",
+      "components": [
+        "MainInfo_error"
+      ],
+      "buttons": [
+        {
+          "label": "Перейти на главную",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "RedirectScreenPersonalPage_error",
+      "name": "",
+      "type": "EMPTY",
+      "header": "",
+      "components": [
+        "redirectcomponentpp_error"
+      ],
+      "isTerminal": false
+    },
+    {
+      "isFirstScreen": true,
+      "id": "s_main",
+      "name": "",
+      "type": "INFO",
+      "header": "",
+      "components": [
+        "MainInfo"
+      ],
+      "buttons": [
+        {
+          "label": "Начать",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RecipientData",
+      "name": "Сведения о заявителе",
+      "type": "UNIQUE",
+      "header": "Сведения о заявителе",
+      "components": [
+        "RecipientData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RecipientPhoneData",
+      "name": "Контактный телефон заявителя",
+      "type": "UNIQUE",
+      "header": "Контактный телефон заявителя",
+      "components": [
+        "RecipientPhoneData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RecipientEmailData",
+      "name": "Электронная почта заявителя",
+      "type": "UNIQUE",
+      "header": "Электронная почта заявителя",
+      "components": [
+        "RecipientEmailData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RecipientRegAddressData",
+      "name": "Адрес регистрации заявителя",
+      "type": "UNIQUE",
+      "header": "Адрес регистрации заявителя",
+      "components": [
+        "RecipientRegAddressData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RecipientFactAddressData",
+      "name": "Фактический адрес проживания заявителя",
+      "type": "UNIQUE",
+      "header": "Фактический адрес проживания заявителя",
+      "components": [
+        "RecipientFactAddressData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_IP_RecipientData",
+      "name": "Сведения о заявителе",
+      "type": "UNIQUE",
+      "header": "Сведения о заявителе",
+      "components": [
+        "RecipientBusinessmanData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_IP_RecipientPhoneData",
+      "name": "Контактный телефон заявителя",
+      "type": "UNIQUE",
+      "header": "Контактный телефон заявителя",
+      "components": [
+        "RecipientPhoneData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_IP_RecipientEmailData",
+      "name": "Электронная почта заявителя",
+      "type": "UNIQUE",
+      "header": "Электронная почта заявителя",
+      "components": [
+        "RecipientEmailData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_IP_RecipientRegAddressData",
+      "name": "Адрес регистрации заявителя",
+      "type": "UNIQUE",
+      "header": "Адрес регистрации заявителя",
+      "components": [
+        "RecipientRegAddressData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RecipientData",
+      "name": "Сведения о заявителе",
+      "type": "UNIQUE",
+      "header": "Сведения о заявителе",
+      "components": [
+        "RecipientLegalData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RecipientPhoneData",
+      "name": "Контактный телефон заявителя",
+      "type": "UNIQUE",
+      "header": "Контактный телефон заявителя",
+      "components": [
+        "RecipientLegalPhoneData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RecipientEmailData",
+      "name": "Электронная почта заявителя",
+      "type": "UNIQUE",
+      "header": "Электронная почта заявителя",
+      "components": [
+        "RecipientLegalEmailData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RecipientRegAddressData",
+      "name": "Почтовый адрес заявителя",
+      "type": "UNIQUE",
+      "header": "Почтовый адрес заявителя",
+      "components": [
+        "RecipientLegalRegAddressData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RecipientEmployeeData",
+      "name": "Сведения об уполномоченном лице",
+      "type": "UNIQUE",
+      "header": "Сведения об уполномоченном лице",
+      "components": [
+        "RecipientData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RecipientEmployeePhoneData",
+      "name": "Контактный телефон уполномоченного лица",
+      "type": "UNIQUE",
+      "header": "Контактный телефон уполномоченного лица",
+      "components": [
+        "RecipientPhoneData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RecipientEmployeeEmailData",
+      "name": "Электронная почта уполномоченного лица",
+      "type": "UNIQUE",
+      "header": "Электронная почта уполномоченного лица",
+      "components": [
+        "RecipientEmailData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_AuthorityDocument_Employee",
+      "name": "Загрузите документы",
+      "type": "UNIQUE",
+      "header": "Загрузите документы",
+      "components": [
+        "f_AuthorityDocument_Employee"
+      ],
+      "buttons": [
+        {
+          "label": "Далее",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RepresentativeData",
+      "name": "Сведения о представителе",
+      "type": "UNIQUE",
+      "header": "Сведения о представителе",
+      "components": [
+        "RepresentativeData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RepresentativePhoneData",
+      "name": "Контактный телефон представителя",
+      "type": "UNIQUE",
+      "header": "Контактный телефон представителя",
+      "components": [
+        "RepresentativePhoneData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RepresentativeEmailData",
+      "name": "Электронная почта представителя",
+      "type": "UNIQUE",
+      "header": "Электронная почта представителя",
+      "components": [
+        "RepresentativeEmailData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RepresentativeRegAddressData",
+      "name": "Адрес регистрации представителя",
+      "type": "UNIQUE",
+      "header": "Адрес регистрации представителя",
+      "components": [
+        "RepresentativeRegAddressData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RepresentativeFactAddressData",
+      "name": "Фактический адрес проживания представителя",
+      "type": "UNIQUE",
+      "header": "Фактический адрес проживания представителя",
+      "components": [
+        "RepresentativeFactAddressData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_IP_RepresentativeData",
+      "name": "Сведения о представителе",
+      "type": "UNIQUE",
+      "header": "Сведения о представителе",
+      "components": [
+        "RepresentativeBusinessmanData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_IP_RepresentativePhoneData",
+      "name": "Контактный телефон представителя",
+      "type": "UNIQUE",
+      "header": "Контактный телефон представителя",
+      "components": [
+        "RepresentativePhoneData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_IP_RepresentativeEmailData",
+      "name": "Электронная почта представителя",
+      "type": "UNIQUE",
+      "header": "Электронная почта представителя",
+      "components": [
+        "RepresentativeEmailData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_IP_RepresentativeRegAddressData",
+      "name": "Адрес регистрации представителя",
+      "type": "UNIQUE",
+      "header": "Адрес регистрации представителя",
+      "components": [
+        "RepresentativeRegAddressData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RepresentativeData",
+      "name": "Сведения о представителе",
+      "type": "UNIQUE",
+      "header": "Сведения о представителе",
+      "components": [
+        "RepresentativeLegalData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RepresentativePhoneData",
+      "name": "Контактный телефон представителя",
+      "type": "UNIQUE",
+      "header": "Контактный телефон представителя",
+      "components": [
+        "RepresentativeLegalPhoneData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RepresentativeEmailData",
+      "name": "Электронная почта представителя",
+      "type": "UNIQUE",
+      "header": "Электронная почта представителя",
+      "components": [
+        "RepresentativeLegalEmailData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RepresentativeRegAddressData",
+      "name": "Почтовый адрес представителя",
+      "type": "UNIQUE",
+      "header": "Почтовый адрес представителя",
+      "components": [
+        "RepresentativeLegalRegAddressData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RepresentativeEmployeeData",
+      "name": "Сведения об уполномоченном лице",
+      "type": "UNIQUE",
+      "header": "Сведения об уполномоченном лице",
+      "components": [
+        "RepresentativeData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RepresentativeEmployeePhoneData",
+      "name": "Контактный телефон уполномоченного лица",
+      "type": "UNIQUE",
+      "header": "Контактный телефон уполномоченного лица",
+      "components": [
+        "RepresentativePhoneData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RepresentativeEmployeeEmailData",
+      "name": "Электронная почта уполномоченного лица",
+      "type": "UNIQUE",
+      "header": "Электронная почта уполномоченного лица",
+      "components": [
+        "RepresentativeEmailData"
+      ],
+      "buttons": [
+        {
+          "label": "Верно",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RecipientDataManual",
+      "name": "Сведения о заявителе",
+      "type": "CUSTOM",
+      "header": "Сведения о заявителе",
+      "suggestion": {
+        "groupId": "doc_rec_pd"
+      },
+      "components": [
+        "LastName",
+        "FirstName",
+        "MiddleName"
+      ],
+      "buttons": [
+        {
+          "label": "Далее",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_FL_RecipientDataDocumentManual",
+      "name": "Документ, удостоверяющий личность заявителя",
+      "type": "CUSTOM",
+      "header": "Документ, удостоверяющий личность заявителя",
+      "suggestion": {
+        "groupId": "receiver_passp_dat"
+      },
+      "components": [
+        "DocumentPersonal",
+        "docseriesPassportRF",
+        "docnumberPassportRF",
+        "issueidPassportRF",
+        "issuedatePassportRF",
+        "issueorgPassportRF",
+        "docseries",
+        "docnumber",
+        "issuedate",
+        "issueorg"
+      ],
+      "buttons": [
+        {
+          "label": "Далее",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_AuthorityDocument_FL",
+      "name": "Загрузите документы",
+      "type": "UNIQUE",
+      "header": "Загрузите документы",
+      "components": [
+        "f_AuthorityDocument_FL"
+      ],
+      "buttons": [
+        {
+          "label": "Далее",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_IP_RecipientDataManual",
+      "name": "Сведения о заявителе",
+      "type": "CUSTOM",
+      "header": "Сведения о заявителе",
+      "suggestion": {
+        "groupId": "legal_data"
+      },
+      "components": [
+        "FullnameIP",
+        "OGRNIP",
+        "INNIP"
+      ],
+      "buttons": [
+        {
+          "label": "Далее",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_AuthorityDocument_IP",
+      "name": "Загрузите документы",
+      "type": "UNIQUE",
+      "header": "Загрузите документы",
+      "components": [
+        "f_AuthorityDocument_IP"
+      ],
+      "buttons": [
+        {
+          "label": "Далее",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_UL_RecipientDataManual",
+      "name": "Сведения о заявителе",
+      "type": "CUSTOM",
+      "header": "Сведения о заявителе",
+      "suggestion": {
+        "groupId": "legal_data"
+      },
+      "components": [
+        "Fullname",
+        "OGRN",
+        "INN"
+      ],
+      "buttons": [
+        {
+          "label": "Далее",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_AuthorityDocument_UL",
+      "name": "Загрузите документы",
+      "type": "UNIQUE",
+      "header": "Загрузите документы",
+      "components": [
+        "f_AuthorityDocument_UL"
+      ],
+      "buttons": [
+        {
+          "label": "Далее",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_CompetentOrganization",
+      "name": "Выбор уполномоченного органа, предоставляющего услугу",
+      "type": "UNIQUE",
+      "header": "Выбор уполномоченного органа, предоставляющего услугу",
+      "components": [
+        "Organization"
+      ],
+      "buttons": [
+        {
+          "label": "Далее",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "s_MethodGettingResults",
+      "name": "Способ получения результата",
+      "type": "CUSTOM",
+      "header": "Способ получения результата",
+      "components": [
+        "MethodGettingResults_Info",
+        "IsPaperDocumentRequired",
+        "MethodGettingResults_Choose"
+      ],
+      "buttons": [
+        {
+          "label": "Подать заявление",
+          "type": "nextStep",
+          "action": "getNextScreen"
+        }
+      ]
+    },
+    {
+      "id": "RedirectScreenPersonalPage",
+      "name": "",
+      "type": "EMPTY",
+      "header": "",
+      "components": [
+        "RedirectComponentpp"
+      ],
+      "isTerminal": true
+    }
+  ],
+  "applicationFields": [
+    {
+      "id": "CheckRegion",
+      "type": "RestCall",
+      "attrs": {
+        "url": "https://pgu-dev-fed.test.gosuslugi.ru",
+        "method": "GET",
+        "path": "/api/nsi/v1/epgu/region/${region}/service/600246",
+        "body": "",
+        "queryParameters": {},
+        "headers": {},
+        "cookies": {},
+        "refs": {
+          "region": "userRegion.codes[0]"
+        }
+      }
+    },
+    {
+      "id": "ServiceRountingRequest",
+      "type": "Redirect",
+      "label": "",
+      "attrs": {
+        "actions": [
+          {
+            "label": "",
+            "value": "",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "MainInfo_error",
+      "type": "InfoScr",
+      "label": "<p align='justify'><b>Внимание!</b><br/>Ваш регион: ${region}. Услуга в нём недоступна.</p>",
+      "attrs": {
+        "refs": {
+          "region": "userRegion.name"
+        }
+      }
+    },
+    {
+      "id": "redirectcomponentpp_error",
+      "type": "Redirect",
+      "label": "",
+      "attrs": {
+        "link": "https://www.gosuslugi.ru"
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "MainInfo",
+      "type": "InfoScr",
+      "label": ""
+    },
+    {
+      "id": "RecipientData",
+      "type": "ConfirmPersonalUserData",
+      "label": "Сведения о заявителе из ЕСИА",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Изменить",
+            "value": "",
+            "type": "profileEdit",
+            "action": "editPassportData"
+          }
+        ],
+        "fields": [
+          {
+            "fieldName": "firstName",
+            "label": ""
+          },
+          {
+            "fieldName": "lastName",
+            "label": ""
+          },
+          {
+            "fieldName": "middleName",
+            "label": ""
+          },
+          {
+            "fieldName": "birthDate",
+            "label": "Дата рождения"
+          },
+          {
+            "fieldName": "rfPasportSeries",
+            "label": "Серия паспорта"
+          },
+          {
+            "fieldName": "rfPasportNumber",
+            "label": "Номер паспорта"
+          },
+          {
+            "fieldName": "rfPasportIssueDate",
+            "label": "Дата выдачи"
+          },
+          {
+            "fieldName": "rfPasportIssuedBy",
+            "label": "Кем выдан"
+          },
+          {
+            "fieldName": "rfPasportIssuedById",
+            "label": "Код подразделения"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RecipientPhoneData",
+      "type": "ConfirmPersonalUserPhone",
+      "label": "Контактный телефон",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Редактировать",
+            "value": "",
+            "type": "nextStepModal",
+            "action": "service/actions/editPhoneNumber"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RecipientEmailData",
+      "type": "ConfirmPersonalUserEmail",
+      "label": "Электронная почта",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Редактировать",
+            "value": "",
+            "type": "nextStepModal",
+            "action": "service/actions/editUserEmail"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RecipientRegAddressData",
+      "type": "ConfirmPersonalUserRegAddr",
+      "label": "",
+      "attrs": {
+        "addrType": "permanentRegistry",
+        "style": {
+          "group": "string",
+          "groupTitle": "string",
+          "value": "string",
+          "label": "string",
+          "field": "string",
+          "list": "string",
+          "divider": "string"
+        },
+        "fields": [
+          {
+            "fieldName": "regAddr",
+            "label": "Адрес"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RecipientFactAddressData",
+      "type": "ConfirmPersonalUserRegAddr",
+      "label": "Фактический адрес проживания",
+      "attrs": {
+        "addrType": "actualResidence",
+        "style": {
+          "group": "string",
+          "groupTitle": "string",
+          "value": "string",
+          "label": "string",
+          "field": "string",
+          "list": "string",
+          "divider": "string"
+        },
+        "fields": [
+          {
+            "fieldName": "regAddr",
+            "label": "Адрес"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RecipientBusinessmanData",
+      "type": "ConfirmLegalData",
+      "label": "",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Изменить",
+            "value": "",
+            "type": "profileEdit",
+            "action": "editPassportData"
+          }
+        ],
+        "fields": [
+          {
+            "fieldName": "fullName",
+            "label": "Полное наименование"
+          },
+          {
+            "fieldName": "ogrn",
+            "label": "ОГРНИП"
+          },
+          {
+            "fieldName": "inn",
+            "label": "ИНН"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RecipientLegalData",
+      "type": "ConfirmLegalData",
+      "label": "",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Изменить",
+            "value": "",
+            "type": "profileEdit",
+            "action": "editPassportData"
+          }
+        ],
+        "fields": [
+          {
+            "fieldName": "fullName",
+            "label": "Полное наименование"
+          },
+          {
+            "fieldName": "ogrn",
+            "label": "ОГРН"
+          },
+          {
+            "fieldName": "inn",
+            "label": "ИНН"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RecipientLegalPhoneData",
+      "type": "ConfirmLegalPhone",
+      "label": "Контактный телефон",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Редактировать",
+            "value": "",
+            "type": "nextStepModal",
+            "action": "service/actions/editPhoneNumber"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RecipientLegalEmailData",
+      "type": "ConfirmLegalEmail",
+      "label": "Электронная почта",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Редактировать",
+            "value": "",
+            "type": "nextStepModal",
+            "action": "service/actions/editUserEmail"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RecipientLegalRegAddressData",
+      "type": "RegistrationLegalAddr",
+      "label": "",
+      "attrs": {
+        "addressType": "legalAddress",
+        "fields": [
+          {
+            "fieldName": "regAddr",
+            "label": "Адрес"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "f_AuthorityDocument_Employee",
+      "type": "FileUploadComponent",
+      "label": "",
+      "suggestionId": "prev_files_power_att",
+      "required": true,
+      "attrs": {
+        "uploads": [
+          {
+            "uploadId": "AuthorityDocument_Employee",
+            "type": "single",
+            "label": "<h5 align='justify'>Документ, подтверждающий полномочия сотрудника действовать от имени юридического лица</h5><p align='justify' style='font-size:18px'>Необходимо загрузить: <br/>1. Документ, подтверждающий полномочия представителя действовать от имени заявителя, подписанный усиленной квалифицированной электронной подписью заявителя или нотариуса. <br/>2. Файл с открепленной усиленной квалифицированной электронной подписью заявителя или нотариуса в формате SIG.</p><p align='justify' style='font-size:18px'>Для загрузки выберите файл с расширением *.PDF, *.XML, *.ZIP, *.RAR, *.SIG.<br>Максимально допустимый размер файла — 50 Мб.</p>",
+            "fileType": [
+              "PDF",
+              "XML",
+              "ZIP",
+              "RAR",
+              "SIG"
+            ],
+            "maxSize": 52428800,
+            "maxFileCount": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "RepresentativeData",
+      "type": "ConfirmPersonalUserData",
+      "label": "Сведения о представителе из ЕСИА",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Изменить",
+            "value": "",
+            "type": "profileEdit",
+            "action": "editPassportData"
+          }
+        ],
+        "fields": [
+          {
+            "fieldName": "firstName",
+            "label": ""
+          },
+          {
+            "fieldName": "lastName",
+            "label": ""
+          },
+          {
+            "fieldName": "middleName",
+            "label": ""
+          },
+          {
+            "fieldName": "birthDate",
+            "label": "Дата рождения"
+          },
+          {
+            "fieldName": "rfPasportSeries",
+            "label": "Серия паспорта"
+          },
+          {
+            "fieldName": "rfPasportNumber",
+            "label": "Номер паспорта"
+          },
+          {
+            "fieldName": "rfPasportIssueDate",
+            "label": "Дата выдачи"
+          },
+          {
+            "fieldName": "rfPasportIssuedBy",
+            "label": "Кем выдан"
+          },
+          {
+            "fieldName": "rfPasportIssuedById",
+            "label": "Код подразделения"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RepresentativePhoneData",
+      "type": "ConfirmPersonalUserPhone",
+      "label": "Контактный телефон",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Редактировать",
+            "value": "",
+            "type": "nextStepModal",
+            "action": "service/actions/editPhoneNumber"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RepresentativeEmailData",
+      "type": "ConfirmPersonalUserEmail",
+      "label": "Электронная почта",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Редактировать",
+            "value": "",
+            "type": "nextStepModal",
+            "action": "service/actions/editUserEmail"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RepresentativeRegAddressData",
+      "type": "ConfirmPersonalUserRegAddr",
+      "label": "",
+      "attrs": {
+        "style": {
+          "group": "string",
+          "groupTitle": "string",
+          "value": "string",
+          "label": "string",
+          "field": "string",
+          "list": "string",
+          "divider": "string"
+        },
+        "fields": [
+          {
+            "fieldName": "regAddr",
+            "label": "Адрес"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RepresentativeFactAddressData",
+      "type": "ConfirmPersonalUserRegAddr",
+      "label": "Фактический адрес проживания",
+      "attrs": {
+        "addrType": "actualResidence",
+        "style": {
+          "group": "string",
+          "groupTitle": "string",
+          "value": "string",
+          "label": "string",
+          "field": "string",
+          "list": "string",
+          "divider": "string"
+        },
+        "fields": [
+          {
+            "fieldName": "regAddr",
+            "label": "Адрес"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RepresentativeBusinessmanData",
+      "type": "ConfirmLegalData",
+      "label": "",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Изменить",
+            "value": "",
+            "type": "profileEdit",
+            "action": "editPassportData"
+          }
+        ],
+        "fields": [
+          {
+            "fieldName": "fullName",
+            "label": "Полное наименование"
+          },
+          {
+            "fieldName": "ogrn",
+            "label": "ОГРНИП"
+          },
+          {
+            "fieldName": "inn",
+            "label": "ИНН"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RepresentativeLegalData",
+      "type": "ConfirmLegalData",
+      "label": "",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Изменить",
+            "value": "",
+            "type": "profileEdit",
+            "action": "editPassportData"
+          }
+        ],
+        "fields": [
+          {
+            "fieldName": "fullName",
+            "label": "Полное наименование"
+          },
+          {
+            "fieldName": "ogrn",
+            "label": "ОГРН"
+          },
+          {
+            "fieldName": "inn",
+            "label": "ИНН"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RepresentativeLegalPhoneData",
+      "type": "ConfirmLegalPhone",
+      "label": "Контактный телефон",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Редактировать",
+            "value": "",
+            "type": "nextStepModal",
+            "action": "service/actions/editPhoneNumber"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RepresentativeLegalEmailData",
+      "type": "ConfirmLegalEmail",
+      "label": "Электронная почта",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Редактировать",
+            "value": "",
+            "type": "nextStepModal",
+            "action": "service/actions/editUserEmail"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RepresentativeLegalRegAddressData",
+      "type": "RegistrationLegalAddr",
+      "label": "",
+      "attrs": {
+        "addressType": "legalAddress",
+        "fields": [
+          {
+            "fieldName": "regAddr",
+            "label": "Адрес"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "LastName",
+      "type": "StringInput",
+      "label": "Фамилия",
+      "suggestionId": "lastname",
+      "required": true,
+      "attrs": {
+        "fstuc": "all",
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": "(^[-а-яёЁА-Я\\ ]+$)|(^$)",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Разрешен ввод кириллицы, пробела, знака «-» (тире)"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "FirstName",
+      "type": "StringInput",
+      "label": "Имя",
+      "suggestionId": "firstname",
+      "required": true,
+      "attrs": {
+        "fstuc": "all",
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": "(^[-а-яёЁА-Я\\ ]+$)|(^$)",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Разрешен ввод кириллицы, пробела, знака «-» (тире)"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "MiddleName",
+      "type": "StringInput",
+      "label": "Отчество",
+      "suggestionId": "middlename",
+      "required": false,
+      "attrs": {
+        "fstuc": "all",
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": "(^[-а-яёЁА-Я\\ ]+$)|(^$)",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Разрешен ввод кириллицы, пробела, знака «-» (тире)"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "DocumentPersonal",
+      "type": "Lookup",
+      "label": "Вид документа",
+      "attrs": {
+        "dictionaryType": "PGS_Types_document",
+        "ref": [],
+        "defaultIndex": "0",
+        "required": true
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "docseriesPassportRF",
+      "type": "StringInput",
+      "label": "Серия",
+      "suggestionId": "serial",
+      "required": true,
+      "attrs": {
+        "grid": "grid-col-6 grid-col-12-sm",
+        "mask": [
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/"
+        ],
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": "(^\\d{4}$)|(^$)",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Введите 4 цифры серии паспорта гражданина РФ"
+          }
+        ],
+        "ref": [
+          {
+            "relatedRel": "DocumentPersonal",
+            "val": "1",
+            "relation": "displayOn"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "docnumberPassportRF",
+      "type": "StringInput",
+      "label": "Номер",
+      "suggestionId": "number",
+      "required": true,
+      "attrs": {
+        "grid": "grid-col-6 grid-col-12-sm",
+        "mask": [
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/"
+        ],
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": "(^\\d{6}$)|(^$)",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Введите 6 цифр номера паспорта гражданина РФ"
+          }
+        ],
+        "ref": [
+          {
+            "relatedRel": "DocumentPersonal",
+            "val": "1",
+            "relation": "displayOn"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "issueidPassportRF",
+      "type": "StringInput",
+      "label": "Код подразделения",
+      "suggestionId": "issuer_code",
+      "required": true,
+      "attrs": {
+        "grid": "grid-col-6 grid-col-12-sm",
+        "mask": [
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "-",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/"
+        ],
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": "^([0-9]{3}-[0-9]{3})$|(^$)",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Введите значение в формате: 999-999, где 9 - цифра"
+          }
+        ],
+        "ref": [
+          {
+            "relatedRel": "DocumentPersonal",
+            "val": "1",
+            "relation": "displayOn"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "issuedatePassportRF",
+      "type": "DateInput",
+      "label": "Дата выдачи",
+      "suggestionId": "issue_date",
+      "required": true,
+      "attrs": {
+        "grid": "grid-col-6 grid-col-12-sm",
+        "accuracy": "day",
+        "minDate": "-130y",
+        "maxDate": "today",
+        "brokenDateFixStrategy": "reset",
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": ".+",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Поле не может быть пустым"
+          }
+        ],
+        "ref": [
+          {
+            "relatedRel": "DocumentPersonal",
+            "val": "1",
+            "relation": "displayOn"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "issueorgPassportRF",
+      "type": "StringInput",
+      "label": "Кем выдан",
+      "suggestionId": "issued",
+      "required": true,
+      "attrs": {
+        "ref": [
+          {
+            "relatedRel": "DocumentPersonal",
+            "val": "1",
+            "relation": "displayOn"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "docseries",
+      "type": "StringInput",
+      "label": "Серия",
+      "required": false,
+      "attrs": {
+        "ref": [
+          {
+            "relatedRel": "DocumentPersonal",
+            "val": [
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16"
+            ],
+            "relation": "displayOn"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "docnumber",
+      "type": "StringInput",
+      "label": "Номер",
+      "required": true,
+      "attrs": {
+        "grid": "grid-col-6 grid-col-12-sm",
+        "ref": [
+          {
+            "relatedRel": "DocumentPersonal",
+            "val": [
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16"
+            ],
+            "relation": "displayOn"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "issuedate",
+      "type": "DateInput",
+      "label": "Дата выдачи",
+      "required": true,
+      "attrs": {
+        "grid": "grid-col-6 grid-col-12-sm",
+        "accuracy": "day",
+        "minDate": "-130y",
+        "maxDate": "today",
+        "brokenDateFixStrategy": "reset",
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": ".+",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Поле не может быть пустым"
+          }
+        ],
+        "ref": [
+          {
+            "relatedRel": "DocumentPersonal",
+            "val": [
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16"
+            ],
+            "relation": "displayOn"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "issueorg",
+      "type": "StringInput",
+      "label": "Кем выдан",
+      "required": true,
+      "attrs": {
+        "ref": [
+          {
+            "relatedRel": "DocumentPersonal",
+            "val": [
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16"
+            ],
+            "relation": "displayOn"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "f_AuthorityDocument_FL",
+      "type": "FileUploadComponent",
+      "label": "",
+      "suggestionId": "prev_files_power_att",
+      "required": true,
+      "attrs": {
+        "uploads": [
+          {
+            "uploadId": "AuthorityDocument_FL",
+            "type": "single",
+            "label": "<h5 align='justify'>Документ, подтверждающий полномочия представителя на подачу заявления от имени физического лица</h5><p align='justify' style='font-size:18px'>Необходимо загрузить: <br/> 1. Документ, подтверждающий полномочия представителя действовать от имени заявителя, подписанный усиленной квалифицированной электронной подписью заявителя или нотариуса. <br/> 2. Файл с открепленной усиленной квалифицированной электронной подписью заявителя или нотариуса в формате SIG.</p><p align='justify' style='font-size:18px'>Для загрузки выберите файл с расширением *.PDF, *.XML, *.ZIP, *.RAR, *.SIG.<br>Максимально допустимый размер файла — 50 Мб.</p>",
+            "fileType": [
+              "PDF",
+              "XML",
+              "ZIP",
+              "RAR",
+              "SIG"
+            ],
+            "maxSize": 52428800,
+            "maxFileCount": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "FullnameIP",
+      "type": "TextArea",
+      "label": "Полное наименование",
+      "suggestionId": "org_full_name",
+      "required": true,
+      "attrs": {
+        "charsAmount": "2000",
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": ".+",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Поле не может быть пустым"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "OGRNIP",
+      "type": "OgrnipInput",
+      "label": "ОГРНИП",
+      "suggestionId": "org_ogrn",
+      "required": true,
+      "attrs": {
+        "validation": [
+          {
+            "errorMsg": "Указан некорректный ОГРНИП"
+          },
+          {
+            "type": "validation-fn",
+            "errorMsg": "Такого номера не существует"
+          }
+        ],
+        "mask": [
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/"
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "INNIP",
+      "type": "PersonInnInput",
+      "label": "ИНН",
+      "suggestionId": "org_inn",
+      "required": true,
+      "attrs": {
+        "validation": [
+          {
+            "errorMsg": "Указан некорректный ИНН"
+          },
+          {
+            "type": "validation-fn",
+            "errorMsg": "Такого номера не существует"
+          }
+        ],
+        "mask": [
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/"
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "f_AuthorityDocument_IP",
+      "type": "FileUploadComponent",
+      "label": "",
+      "suggestionId": "prev_files_power_att",
+      "required": true,
+      "attrs": {
+        "uploads": [
+          {
+            "uploadId": "AuthorityDocument_IP",
+            "type": "single",
+            "label": "<h5 align='justify'>Документ, подтверждающий полномочия представителя на подачу заявления от имени индивидуального предпринимателя</h5><p align='justify' style='font-size:18px'>Необходимо загрузить: <br/>1. Документ, подтверждающий полномочия представителя действовать от имени заявителя, подписанный усиленной квалифицированной электронной подписью заявителя или нотариуса.<br/> 2. Файл с открепленной усиленной квалифицированной электронной подписью заявителя или нотариуса в формате SIG.</p><p align='justify' style='font-size:18px'>Для загрузки выберите файл с расширением *.PDF, *.XML, *.ZIP, *.RAR, *.SIG.<br>Максимально допустимый размер файла — 50 Мб.</p>",
+            "fileType": [
+              "PDF",
+              "XML",
+              "ZIP",
+              "RAR",
+              "SIG"
+            ],
+            "maxSize": 52428800,
+            "maxFileCount": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "Fullname",
+      "type": "TextArea",
+      "label": "Полное наименование",
+      "suggestionId": "org_full_name",
+      "required": true,
+      "attrs": {
+        "charsAmount": "2000",
+        "validation": [
+          {
+            "type": "RegExp",
+            "value": ".+",
+            "ref": "",
+            "dataType": "",
+            "condition": "",
+            "errorMsg": "Поле не может быть пустым"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "OGRN",
+      "type": "OgrnInput",
+      "label": "ОГРН",
+      "suggestionId": "org_ogrn",
+      "required": true,
+      "attrs": {
+        "validation": [
+          {
+            "errorMsg": "Указан некорректный ОГРН"
+          },
+          {
+            "type": "validation-fn",
+            "errorMsg": "Такого номера не существует"
+          }
+        ],
+        "mask": [
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/"
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "INN",
+      "type": "LegalInnInput",
+      "label": "ИНН",
+      "suggestionId": "org_inn",
+      "required": true,
+      "attrs": {
+        "validation": [
+          {
+            "errorMsg": "Указан некорректный ИНН"
+          },
+          {
+            "type": "validation-fn",
+            "errorMsg": "Такого номера не существует"
+          }
+        ],
+        "mask": [
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/",
+          "/\\d/"
+        ]
+      },
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "f_AuthorityDocument_UL",
+      "type": "FileUploadComponent",
+      "label": "",
+      "suggestionId": "prev_files_power_att",
+      "required": true,
+      "attrs": {
+        "uploads": [
+          {
+            "uploadId": "AuthorityDocument_UL",
+            "type": "single",
+            "label": "<h5 align='justify'>Документ, подтверждающий полномочия представителя на подачу заявления от имени юридического лица</h5><p align='justify' style='font-size:18px'>Необходимо загрузить:<br/> 1. Документ, подтверждающий полномочия представителя действовать от имени заявителя, подписанный усиленной квалифицированной электронной подписью заявителя или нотариуса.<br/> 2. Файл с открепленной усиленной квалифицированной электронной подписью заявителя или нотариуса в формате SIG.</p><p align='justify' style='font-size:18px'>Для загрузки выберите файл с расширением *.PDF, *.XML, *.ZIP, *.RAR, *.SIG.<br>Максимально допустимый размер файла — 50 Мб.</p>",
+            "fileType": [
+              "PDF",
+              "XML",
+              "ZIP",
+              "RAR",
+              "SIG"
+            ],
+            "maxSize": 52428800,
+            "maxFileCount": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "Organization",
+      "type": "MapService",
+      "label": "<p>Выберите подразделение</p>",
+      "attrs": {
+        "autoCenterAllPoints": true,
+        "validationOn": false,
+        "attributeNameWithAddress": "ADDRESS",
+        "dictionaryType": "PGS_CNSTR_ORG",
+        "dictionaryFilter": [
+          {
+            "attributeName": "SERVICE_CODE",
+            "condition": "EQUALS",
+            "value": "{\"asString\":\"-10000000246\"}",
+            "valueType": "value"
+          },
+          {
+            "attributeName": "REGOKATO",
+            "condition": "EQUALS",
+            "value": "infSysCode",
+            "valueType": "serviceInfo"
+          }
+        ],
+        "selectAttributes": [
+          "ADDRESS",
+          "SHORT_TITLE"
+        ],
+        "baloonContent": [
+          {
+            "name": "ADDRESS",
+            "label": "Адрес"
+          },
+          {
+            "name": "SHORT_TITLE",
+            "label": "Наименование"
+          }
+        ],
+        "addressString": {
+          "type": "REF",
+          "value": "RecipientData.regAddr.fullAddress"
+        },
+        "actions": [],
+        "fields": [],
+        "value": "",
+        "visited": false
+      }
+    },
+    {
+      "id": "MethodGettingResults_Info",
+      "type": "LabelSection",
+      "label": "<p>Электронный результат предоставления услуги будет предоставлен в Ваш личный кабинет на ЕПГУ.</p>",
+      "attrs": {},
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "IsPaperDocumentRequired",
+      "type": "CheckBox",
+      "label": "Получить дополнительно результат на бумажном носителе",
+      "attrs": {},
+      "required": false,
+      "value": false,
+      "visited": false
+    },
+    {
+      "id": "MethodGettingResults_Choose",
+      "type": "RadioInput",
+      "label": "",
+      "attrs": {
+        "supportedValues": [
+          {
+            "label": "МФЦ",
+            "value": "1"
+          },
+          {
+            "label": "Личное обращение в уполномоченный орган",
+            "value": "2"
+          }
+        ],
+        "ref": [
+          {
+            "relatedRel": "IsPaperDocumentRequired",
+            "val": true,
+            "relation": "displayOn"
+          }
+        ],
+        "isVertical": true
+      },
+      "required": true,
+      "value": "",
+      "visited": false
+    },
+    {
+      "id": "RedirectComponentpp",
+      "type": "Redirect",
+      "label": "",
+      "attrs": {
+        "actions": [
+          {
+            "label": "Перейти в личный кабинет",
+            "value": "Подтвердить",
+            "type": "redirectToLK",
+            "action": "getNextScreen"
+          }
+        ]
+      },
+      "value": "",
+      "visited": false
+    }
+  ],
+  "screenRules": {
+    "ServiceRounting": [
+      {
+        "conditions": [
+          {
+            "field": "CheckRegion.value.code",
+            "fieldType": "String",
+            "predicate": "equals",
+            "args": [
+              {
+                "type": "UserConst",
+                "value": "200"
+              }
+            ]
+          }
+        ],
+        "nextDisplay": "s_main"
+      },
+      {
+        "conditions": [
+          {
+            "field": "CheckRegion.value.code",
+            "fieldType": "String",
+            "predicate": "equals",
+            "args": [
+              {
+                "type": "UserConst",
+                "value": "404"
+              }
+            ]
+          }
+        ],
+        "nextDisplay": "s_main_error"
+      }
+    ],
+    "s_main_error": [
+      {
+        "conditions": [
+          {
+            "field": "MainInfo_error",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "RedirectScreenPersonalPage_error"
+      }
+    ],
+    "s_main": [
+      {
+        "conditions": [
+          {
+            "field": "MainInfo",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_Goal"
+      }
+    ],
+    "s_FL_RecipientData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientPhoneData"
+      }
+    ],
+    "s_FL_RecipientPhoneData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientPhoneData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientEmailData"
+      }
+    ],
+    "s_FL_RecipientEmailData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientEmailData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientRegAddressData"
+      }
+    ],
+    "s_FL_RecipientRegAddressData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientRegAddressData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientFactAddressData"
+      }
+    ],
+    "s_IP_RecipientData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientBusinessmanData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_IP_RecipientPhoneData"
+      }
+    ],
+    "s_IP_RecipientPhoneData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientPhoneData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_IP_RecipientEmailData"
+      }
+    ],
+    "s_IP_RecipientEmailData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientEmailData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_IP_RecipientRegAddressData"
+      }
+    ],
+    "s_UL_RecipientData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientLegalData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientPhoneData"
+      }
+    ],
+    "s_UL_RecipientPhoneData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientLegalPhoneData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientEmailData"
+      }
+    ],
+    "s_UL_RecipientEmailData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientLegalEmailData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientRegAddressData"
+      }
+    ],
+    "s_UL_RecipientRegAddressData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientLegalRegAddressData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientEmployeeData"
+      }
+    ],
+    "s_UL_RecipientEmployeeData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientEmployeePhoneData"
+      }
+    ],
+    "s_UL_RecipientEmployeePhoneData": [
+      {
+        "conditions": [
+          {
+            "field": "RecipientPhoneData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientEmployeeEmailData"
+      }
+    ],
+    "s_UL_RecipientEmployeeEmailData": [
+      {
+        "conditions": [
+          {
+            "protectedField": "userRole",
+            "fieldType": "String",
+            "predicate": "equals",
+            "args": [
+              {
+                "type": "UserConst",
+                "value": "false"
+              }
+            ]
+          }
+        ],
+        "nextDisplay": "s_AuthorityDocument_Employee"
+      }
+    ],
+    "s_AuthorityDocument_Employee": [],
+    "s_FL_RepresentativeData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_FL_RepresentativePhoneData"
+      }
+    ],
+    "s_FL_RepresentativePhoneData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativePhoneData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_FL_RepresentativeEmailData"
+      }
+    ],
+    "s_FL_RepresentativeEmailData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeEmailData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_FL_RepresentativeRegAddressData"
+      }
+    ],
+    "s_FL_RepresentativeRegAddressData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeRegAddressData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_FL_RepresentativeFactAddressData"
+      }
+    ],
+    "s_FL_RepresentativeFactAddressData": [
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "BUSINESS"
+          }
+        ],
+        "nextDisplay": "s_IP_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "LEGAL"
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "PERSON_RF"
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientDataManual"
+      }
+    ],
+    "s_IP_RepresentativeData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeBusinessmanData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_IP_RepresentativePhoneData"
+      }
+    ],
+    "s_IP_RepresentativePhoneData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativePhoneData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_IP_RepresentativeEmailData"
+      }
+    ],
+    "s_IP_RepresentativeEmailData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeEmailData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_IP_RepresentativeRegAddressData"
+      }
+    ],
+    "s_IP_RepresentativeRegAddressData": [
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "BUSINESS"
+          }
+        ],
+        "nextDisplay": "s_IP_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "LEGAL"
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "PERSON_RF"
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientDataManual"
+      }
+    ],
+    "s_UL_RepresentativeData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeLegalData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RepresentativePhoneData"
+      }
+    ],
+    "s_UL_RepresentativePhoneData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeLegalPhoneData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RepresentativeEmailData"
+      }
+    ],
+    "s_UL_RepresentativeEmailData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeLegalEmailData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RepresentativeRegAddressData"
+      }
+    ],
+    "s_UL_RepresentativeRegAddressData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeLegalRegAddressData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RepresentativeEmployeeData"
+      }
+    ],
+    "s_UL_RepresentativeEmployeeData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativeData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RepresentativeEmployeePhoneData"
+      }
+    ],
+    "s_UL_RepresentativeEmployeePhoneData": [
+      {
+        "conditions": [
+          {
+            "field": "RepresentativePhoneData",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_UL_RepresentativeEmployeeEmailData"
+      }
+    ],
+    "s_UL_RepresentativeEmployeeEmailData": [
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "BUSINESS"
+          }
+        ],
+        "nextDisplay": "s_IP_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "LEGAL"
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "PERSON_RF"
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientDataManual"
+      }
+    ],
+    "s_FL_RecipientDataManual": [
+      {
+        "conditions": [
+          {
+            "field": "LastName",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientDataDocumentManual"
+      }
+    ],
+    "s_FL_RecipientDataDocumentManual": [
+      {
+        "conditions": [
+          {
+            "field": "DocumentPersonal",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_AuthorityDocument_FL"
+      }
+    ],
+    "s_IP_RecipientDataManual": [
+      {
+        "conditions": [
+          {
+            "field": "FullnameIP",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_AuthorityDocument_IP"
+      }
+    ],
+    "s_UL_RecipientDataManual": [
+      {
+        "conditions": [
+          {
+            "field": "Fullname",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_AuthorityDocument_UL"
+      }
+    ],
+    "s_CompetentOrganization": [
+      {
+        "conditions": [
+          {
+            "field": "Organization",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_MethodGettingResults"
+      }
+    ],
+    "s_MethodGettingResults": [
+      {
+        "conditions": [
+          {
+            "field": "IsPaperDocumentRequired",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "RedirectScreenPersonalPage"
+      }
+    ]
+  }
+}

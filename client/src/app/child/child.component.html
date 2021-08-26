@@ -1,0 +1,23 @@
+<h2>ChildrenList</h2>
+<div [formGroup]="childFrom">
+  <div class="card" formGroupName="child">
+    <label>Id</label>
+    <input type="text" formControlName="id">
+    <label>Наименование</label>
+    <input type="text" formControlName="label">
+    <label>От n лет</label>
+    <input type="text" formControlName="minAge">
+    <label>До n лет</label>
+    <input type="text" formControlName="maxAge">
+    <div class="broke">
+      <div class="file">
+        Един. ребенок
+        <input type="checkbox" checked formControlName="singleChild">
+      </div>
+      <div class="file">
+        Цикл
+        <input type="checkbox" formControlName="isCycled">
+      </div>
+    </div>
+  </div>
+</div>

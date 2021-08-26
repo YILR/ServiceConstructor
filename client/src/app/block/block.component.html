@@ -1,0 +1,33 @@
+<div>
+    <label><input type="text" [(ngModel)]="code">код услуги
+      <button type="submit" class="btn" (click)="submit()">Сгенерировать Json</button>
+    </label>
+</div>
+
+<div id="page">
+  <div  *ngFor="let scr of screens;let idx = index">
+    <div class="block">
+      <b class="ulist">{{scr.header}}</b>
+      <p  class="ulist">{{scr.id}}</p>
+      <ul class="ulist" >
+        Components [
+        <li *ngFor="let com of scr.components">{{com.id}}</li>
+        ]
+      </ul>
+      <ul class="ulist" *ngIf="checkRule(scr.screenRules)">
+        ScreenRules [
+        <li *ngFor="let scR of scr.screenRules">{{scR.nextDisplay}}</li>
+        ]
+      </ul>
+      <ul class="ulist"  *ngIf="checkRule(scr.cycleScreenRules)">
+        CycleScreenRules [
+        <li *ngFor="let scR of scr.cycleScreenRules">{{scR.nextDisplay}}</li>
+        ]
+      </ul>
+    </div>
+    <button class="edit" type="button" (click)="edit(scr.id)">Изменить</button>
+    <button class="remove" type="button" (click)="removeScr(idx)">Удалить</button>
+  </div>
+</div>
+
+

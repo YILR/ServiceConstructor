@@ -1,0 +1,35 @@
+
+<div class="container">
+  <h2>Добавление экрана</h2>
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <select formControlName="type">
+      <option *ngFor="let type of types" [value]="type" >{{type}}</option>
+    </select>
+
+    <mat-label>Id</mat-label>
+    <input type="text" aria-label="Number" matInput
+           [matAutocomplete]="auto" formControlName="id" (keyup.insert)="onChange($event)">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id">
+        {{option.id}}
+      </mat-option>
+    </mat-autocomplete>
+    <label>Название</label>
+    <input type="text" formControlName="header">
+    <div *ngIf="form.get('type')?.value !== 'QUESTION'">
+      <label>Suggestion Group Id</label>
+      <input type="text" formControlName="suggestion">
+    </div>
+
+    <app-child *ngIf="form.get('type').value === 'CUNIQUE'" [childFrom]="form"></app-child>
+
+    <app-comps [childFrom]="form"></app-comps>
+    <app-screen-rule [childFrom]="form" ruleName="screenRules"></app-screen-rule>
+    <app-screen-rule [childFrom]="form" ruleName="cycleScreenRules"></app-screen-rule>
+
+    <button class="btn" type="submit" [disabled]="form.invalid || form.pending">Добавить экран</button>
+    <button class="btn db" type="button" (click)="saveScreen()" [disabled]="form.invalid || form.pending">Сохранить экран</button>
+  </form>
+</div>
+
+

@@ -1,0 +1,158 @@
+<details class="turn" open id="components">
+  <summary>Добавление компонента</summary>
+  <div [formGroup]="childFrom">
+
+    <div class="card" formArrayName="components">
+      <div *ngFor="let control of formData.controls; let idx = index">
+        <b>{{idx + 1}} компонент</b>
+        <div [formGroupName]="idx">
+
+          <select formControlName="type">
+            <option *ngFor="let type of typesComp" [value]="type">{{type}}</option>
+          </select>
+
+          <mat-label>Id {{idx + 1}}</mat-label>
+          <input type="text" aria-label="Number" matInput
+                 [matAutocomplete]="auto" formControlName="id" (keyup.control)="onChange($event)">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id">
+              {{option.id}}
+            </mat-option>
+          </mat-autocomplete>
+          <div [ngSwitch]="control.value.type">
+
+            <div *ngIf="control.value.type === 'Lookup'">
+              <label>Тип справочника</label>
+              <input type="text" formControlName="dictionaryType">
+            </div>
+
+            <div
+              *ngSwitchCase="['QuestionScr', 'DropDown'].includes(control.value.type) ? '' : control.value.type">
+              <label>Наименование</label>
+              <input type="text" formControlName="label">
+              <div *ngIf="control.value.type !== 'Lookup'">
+                <label>Подсказка</label>
+                <input type="text" formControlName="hint">
+              </div>
+              <div *ngIf="control.value.type === 'StringInput'">
+                <label>Маска</label>
+                <input type="text" formControlName="mask">
+              </div>
+              <div *ngIf="control.value.type === 'TextArea'">
+                <label>Количество символов</label>
+                <input type="text" formControlName="charsAmount">
+              </div>
+            </div>
+
+            <div *ngSwitchCase="'FileUploadComponent'">
+              <label>Макс размер в МБ</label>
+              <input type="text" formControlName="maxSize">
+              <label>Тип файлов</label><br>
+              <div class="broke" formGroupName="fileType">
+                <div class="file" *ngFor="let fileType of fileTypes(idx)">
+                  {{fileType}}
+                  <input type="checkbox" [formControlName]="fileType">
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="control.value.type !== 'QuestionScr'">
+              <label>Suggestion Id</label>
+              <input type="text" formControlName="suggestionId">
+            </div>
+            <div class="card"
+                 *ngSwitchCase="['QuestionScr', 'RadioInput', 'DropDown', 'StringInput'].includes(control.value.type) ? control.value.type : '' "
+                 formArrayName="field">
+              <details class="turn" [open]="onCheckValid(control.value.type)" id="valid">
+                <summary *ngIf="control.value.type === 'StringInput'">Валидация</summary>
+                <div *ngFor="let ans of formField(idx).controls; let i = index">
+                  <div [formGroupName]="i">
+                    <label>Поле {{i + 1}}</label>
+                    <input type="text" formControlName="label">
+                    <label>Текст</label>
+                    <input type="text" formControlName="value">
+                    <button *ngIf="i+1==formField(idx).length" class="btn" type="button" (click)="addField(idx)">
+                      Добавить
+                    </button>
+                    <button *ngIf="i>=1" type="button" class="btn del" (click)="removeField(idx, i)">X</button>
+                    <hr>
+                  </div>
+                  <a href="" (click)="modelService.turn('valid')">Свернуть</a>
+                </div>
+              </details>
+            </div>
+            <!--            //Ref-->
+            <div class="card"
+                 *ngSwitchCase="['DateInput', 'RadioInput', 'DropDown', 'StringInput'].includes(control.value.type) ? control.value.type : '' "
+            >
+              <details class="turn" id="ref">
+                <summary>Ref</summary>
+                <div *ngIf="formRef(idx)" formArrayName="ref">
+                  <div *ngFor="let ans of formRef(idx).controls; let i = index">
+                    <div [formGroupName]="i">
+                      <label>Ссылка на компонент {{i + 1}}</label>
+                      <input type="text" formControlName="relatedRel">
+                      <label>Занчение поля</label>
+                      <input type="text" formControlName="val">
+                      <label>Скрыть/Раскрыть</label>
+                      <input type="text" formControlName="relation">
+                      <button type="button" class="btn del" (click)="removeRef(idx, i)">X</button>
+                      <hr>
+                    </div>
+                    <a href="" (click)="modelService.turn('ref')">Свернуть</a>
+                  </div>
+                </div>
+                <button class="btn" type="button" (click)="addRef(idx)">
+                  Добавить
+                </button>
+              </details>
+
+              <div *ngIf="childFrom.get('type').value === 'CUNIQUE'">
+                <label>fieldName</label>
+                <input type="text" formControlName="fieldName">
+                <div class="broke">
+                  <div class="file">
+                    Hidden
+                    <input type="checkbox" formControlName="hidden">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <span class="radio" *ngIf="control.value.type === 'RadioInput'">
+                <label for="contactChoice1">Горизонтальный</label>
+                <input type="radio" name="position" formControlName="position" value="isHorizontal" id="contactChoice1">
+                <label for="contactChoice2">Вертикальный</label>
+                <input type="radio" name="position" formControlName="position" value="isVertical" id="contactChoice2">
+              </span>
+
+            <div class="broke" *ngIf="onCheckRequiredAndGrid(control.value.type)">
+              <div class="file">
+                Обязательно
+                <input type="checkbox" checked formControlName="required">
+              </div>
+
+              <div class="file">
+                Grid
+                <input type="checkbox" formControlName="grid">
+              </div>
+            </div>
+
+            <div class="oneCheck" *ngIf="control.value.type === 'CheckBox'">
+              <label>Как минимум один</label>
+              <input type="checkbox" formControlName="atLeastOne">
+            </div>
+          </div>
+          <button type="button" class="btn db" (click)="saveComponent(idx)">Сохранить компонент</button>
+          <button *ngIf="idx>=1" type="button" class="btn del" (click)="removeComponent(idx)">X</button>
+        </div>
+
+        <hr>
+      </div>
+      <button class="btn" type="button" (click)="addComponent()">Добавить компонент</button>
+    </div>
+
+  </div>
+  <a href="" (click)="modelService.turn('components')">Свернуть компоненты</a>
+</details>
+<br>

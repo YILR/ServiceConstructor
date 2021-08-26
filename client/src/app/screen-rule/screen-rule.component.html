@@ -1,0 +1,43 @@
+<details class="turn" [open]="ruleName == 'screenRules'" [id]="ruleName">
+  <summary>{{titleRuleName()}}ереход экрана</summary>
+
+<div class="card" [formGroup]="childFrom">
+  <div *ngIf="formData != null">
+  <div [formArrayName]="ruleName">
+    <div *ngFor="let scrRule of formData.controls; let idx = index">
+      <b>{{idx+1}} переход</b>
+      <div [formGroupName]="idx">
+        <div class="card" formArrayName="conditions">
+          <div *ngFor="let ans of formCon(idx).controls; let i = index">
+            <div [formGroupName]="i">
+              <label>Predicate {{i+1}}</label>
+              <select formControlName="predicate">
+                <option>equals</option>
+                <option>notEquals</option>
+                <option>null</option>
+                <option></option>
+              </select>
+              <label>Поле</label>
+              <input type="text" formControlName="field">
+              <label>Значение</label>
+              <input type="text" formControlName="value">
+              <button *ngIf="i+1==formCon(idx).length" class="btn" type="button" (click)="addConditions(idx)">Добавить правила</button>
+              <button *ngIf="i>=1" type="button" class="btn del" (click)="removeConditions(idx, i)">X</button>
+              <hr>
+            </div>
+          </div>
+        </div>
+        <label>Переход на следующий экран</label>
+        <input type="text" formControlName="nextDisplay">
+      </div>
+      <button type="button" class="btn del" (click)="removeScreenRule(idx)">X</button>
+      <hr>
+    </div>
+  </div>
+  </div>
+    <button class="btn" type="button" (click)="addScreenRule()">Добавить переход</button>
+    <button class="btn" type="button" [disabled]="disabledCheck()" (click)="cloneScreenRule()">Клонировать переход</button>
+</div>
+  <a href="" (click)="modelService.turn(ruleName)">Свернуть {{titleRuleName()}}ереход</a>
+</details>
+<br>
