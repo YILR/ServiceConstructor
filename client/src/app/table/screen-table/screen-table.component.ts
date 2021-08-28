@@ -56,7 +56,7 @@ export class ScreenTableComponent implements OnInit {
   }
 
   updateRowData(scr: any){
-    this.router.navigate(['/screen'], {queryParams: {id: scr.id}})
+    this.router.navigate(['/screen'], {queryParams: {id: scr.id, type: 'db'}})
   }
 
   deleteRowData(row_obj: any){

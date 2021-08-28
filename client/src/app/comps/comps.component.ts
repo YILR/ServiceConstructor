@@ -113,7 +113,7 @@ export class CompsComponent implements OnInit {
   }
 
   onCheckValid(type: string): boolean{
-    return type !== 'StringInput';
+    return  !['StringInput', 'SnilsInput'].includes(type);
   }
 
   private autoComplete(comp: Components) {

@@ -34,7 +34,7 @@
                 <label>Подсказка</label>
                 <input type="text" formControlName="hint">
               </div>
-              <div *ngIf="control.value.type === 'StringInput'">
+              <div *ngIf="control.value.type === 'StringInput' || control.value.type === 'SnilsInput'">
                 <label>Маска</label>
                 <input type="text" formControlName="mask">
               </div>
@@ -61,10 +61,10 @@
               <input type="text" formControlName="suggestionId">
             </div>
             <div class="card"
-                 *ngSwitchCase="['QuestionScr', 'RadioInput', 'DropDown', 'StringInput'].includes(control.value.type) ? control.value.type : '' "
+                 *ngSwitchCase="['QuestionScr', 'RadioInput', 'DropDown', 'StringInput', 'SnilsInput'].includes(control.value.type) ? control.value.type : ''"
                  formArrayName="field">
               <details class="turn" [open]="onCheckValid(control.value.type)" id="valid">
-                <summary *ngIf="control.value.type === 'StringInput'">Валидация</summary>
+                <summary *ngIf="control.value.type === 'StringInput' || control.value.type === 'SnilsInput'">Валидация</summary>
                 <div *ngFor="let ans of formField(idx).controls; let i = index">
                   <div [formGroupName]="i">
                     <label>Поле {{i + 1}}</label>
@@ -83,7 +83,7 @@
             </div>
             <!--            //Ref-->
             <div class="card"
-                 *ngSwitchCase="['DateInput', 'RadioInput', 'DropDown', 'StringInput'].includes(control.value.type) ? control.value.type : '' "
+                 *ngSwitchCase="['DateInput', 'RadioInput', 'DropDown', 'StringInput', 'SnilsInput'].includes(control.value.type) ? control.value.type : '' "
             >
               <details class="turn" id="ref">
                 <summary>Ref</summary>

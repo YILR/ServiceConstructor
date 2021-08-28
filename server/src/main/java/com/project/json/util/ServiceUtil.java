@@ -54,7 +54,7 @@ public class ServiceUtil {
             if (applicationFields.stream().noneMatch(abstractComponent -> abstractComponent.getId().equals(cp.getId()))) {
                 if (cp.getType().equals("QuestionScr")) {
                     applicationFields.add(Facade.questFacade(cp));
-                } else if (cp.getType().equals("StringInput")) {
+                } else if (cp.getType().equals("StringInput") || cp.getType().equals("SnilsInput")) {
                     applicationFields.add(Facade.stringInputFacade(cp));
                 } else if (cp.getType().equals("DateInput")) {
                     applicationFields.add(Facade.dateInputFacade(cp));

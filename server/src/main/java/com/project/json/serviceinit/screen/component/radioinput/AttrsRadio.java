@@ -29,7 +29,8 @@ public class AttrsRadio {
             fields = new ArrayList<>();
             fields.add(new LinkedHashMap<>());
             fields.get(0).put("fieldName", fieldName);
-            defaultValue = "true";
+            if(fieldName.equals("isNew"))
+               defaultValue = "true";
         }
         this.hidden = hidden;
         this.supportedValues = fieldDtos.stream()

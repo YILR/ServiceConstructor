@@ -87,14 +87,14 @@ public class ServiceInit {
 
         if (screenDto.getType().equals("REPEATABLE")) {
             String idComp = screenDto.getId().substring(2) + "Block";
-            screens.add(new Screen(screenDto.getId(), screenDto.getType(), screenDto.getHeader(), "Далее", idComp));
+            screens.add(new Screen(screenDto.getId(), screenDto.getType(), screenDto.getHeader(), "Далее", idComp, screenDto.getSuggestion()));
             if (applicationFields.stream().noneMatch(abstractComponent -> abstractComponent.getId().equals(idComp))) {
                 applicationFields.add(new RepeatableField(idComp, ServiceUtil.mapIdComponents(screenDto.getComponents())));
             }
         } else if (screenDto.getType().equals("QUESTION")) {
             screens.add(new Screen(screenDto.getId(), screenDto.getType(), screenDto.getHeader(), null, ServiceUtil.mapIdComponents(screenDto.getComponents())));
         } else if (screenDto.getType().equals("CUNIQUE")) {
-            screens.add(new Screen(screenDto.getId(), "UNIQUE", screenDto.getHeader(), "Далее", screenDto.getChild().getId()));
+            screens.add(new Screen(screenDto.getId(), "UNIQUE", screenDto.getHeader(), "Далее", screenDto.getChild().getId(), screenDto.getSuggestion()));
             ChildDto childDto = screenDto.getChild();
             if (applicationFields.stream().noneMatch(abstractComponent -> abstractComponent.getId().equals(childDto.getId()))) {
                 applicationFields.add(new ChildrenList(childDto.getId(), childDto.getLabel(), childDto.getSingleChild(), childDto.getIsCycled(), childDto.getMinAge(), childDto.getMaxAge(), ServiceUtil.mapIdComponents(screenDto.getComponents())));

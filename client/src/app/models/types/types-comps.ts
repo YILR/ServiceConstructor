@@ -5,7 +5,7 @@ import {Injectable} from "@angular/core";
 })
 export class TypesComps {
   customs: string[] = ['StringInput', 'DateInput', 'AddressInput','RadioInput',
-    'CheckBox', 'TextArea', 'Lookup', 'DropDown', 'DocInput', 'LabelSection']
+    'CheckBox', 'TextArea', 'Lookup', 'DropDown', 'SnilsInput', 'DocInput', 'LabelSection']
 
   types: any = {
     QUESTION: ['QuestionScr', 'InfoComponent'],

@@ -23,6 +23,7 @@ public class AttrsInput {
     private List<String> mask;
     private List<Validation> validation;
     private List<Ref> ref;
+    private String placeholder;
     private Boolean hidden;
 
     public void stringInit(String hint, List<FieldDto> valid, String mask) {
@@ -80,6 +81,8 @@ public class AttrsInput {
                 this.mask = Arrays.stream(masks).map(m -> {
                     if (m.startsWith("\\"))
                         return "/" + m + "/";
+                    else if (m.isEmpty())
+                        return " ";
                     return m;
                 }).collect(Collectors.toList());
             } else {

@@ -15,15 +15,17 @@ public class StringInput extends AbstractComponent {
     private Boolean visited = false;
 
 
-    public StringInput(String id, String label, String hint, List<FieldDto> valid, String mask, String suggestionId,Boolean required) {
+    public StringInput(String id, String type, String label, String hint, List<FieldDto> valid, String mask, String suggestionId,Boolean required) {
         this.id = id;
-        this.type = "StringInput";
+        this.type = type;
         this.label = label;
         this.suggestionId = suggestionId;
         this.required = required;
         attrs.stringInit(hint, valid, mask);
         if(label.equalsIgnoreCase("Отчество"))
             attrs.setCustomUnrecLabel("При наличии");
+        if(type.equals("SnilsInput"))
+            attrs.setPlaceholder("000-000-000 00");
     }
 
 }

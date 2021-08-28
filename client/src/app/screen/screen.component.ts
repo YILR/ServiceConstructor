@@ -47,7 +47,10 @@ export class ScreenComponent implements OnInit, AfterViewInit {
     this.route.queryParams.subscribe((par) => {
       if (par.type === undefined)
         this.getScreen(par.id);
-      else this.com.getComponent(par.id)
+      else if(par.type === 'db')
+        this.getScreenDb(par.id)
+      else if (par.type === 'component')
+        this.com.getComponent(par.id)
     })
     this.cdRef.detectChanges();
   }
@@ -74,7 +77,7 @@ export class ScreenComponent implements OnInit, AfterViewInit {
 
 
   onChange($event: any) {
-    this.getScreen($event.target.value)
+    this.getScreenDb($event.target.value)
   }
 
   private buildForm(): void {
@@ -98,15 +101,18 @@ export class ScreenComponent implements OnInit, AfterViewInit {
     })
   }
 
+  private getScreenDb(id: any){
+    if (id !== undefined) {
+      this.dataService.getScreen(id).subscribe((s) => {
+        this.autoComplete(s);
+      })
+    }
+  }
+
   private getScreen(id: any) {
     if (id !== undefined) {
-
-      let scr: Screen = this.screens.find(screen => screen.id === id)!;
-      if (scr === undefined) {
-        this.dataService.getScreen(id).subscribe((s) => {
-          this.autoComplete(s);
-        });
-      } else this.autoComplete(scr)
+      let scr: Screen = this.screens.find(screen => screen.id === id)!
+      this.autoComplete(scr)
     }
   }
 

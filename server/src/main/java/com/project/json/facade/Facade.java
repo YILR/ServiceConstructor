@@ -24,7 +24,7 @@ public class Facade {
     }
 
     public static StringInput stringInputFacade(ComponentDto cp){
-        StringInput stringInput = new StringInput(cp.getId(), cp.getLabel(), cp.getHint(), cp.getField(), cp.getMask(), cp.getSuggestionId(), cp.getRequired());
+        StringInput stringInput = new StringInput(cp.getId(), cp.getType(), cp.getLabel(), cp.getHint(), cp.getField(), cp.getMask(), cp.getSuggestionId(), cp.getRequired());
         if(stringInput.getId().matches("(.*)[Ll]ast[Nn]ame(.*)") || stringInput.getId().matches("(.*)[Ff]irst[Nn]ame(.*)") || stringInput.getId().matches("(.*)[Mm]iddle[Nn]ame(.*)")){
             stringInput.getAttrs().fstuc();
         }
@@ -97,7 +97,7 @@ public class Facade {
         stringBuilder.append(cp.getLabel());
         stringBuilder.append("</h5>");
         String fileType = Arrays.stream(mapToString(cp.getFileType())).map(f -> "*."+f).collect(Collectors.joining(", "));
-        if(cp.getHint() != null){
+        if(cp.getHint() != null && !cp.getHint().isEmpty()){
             stringBuilder.append("<p align='justify' style='font-size:18px'>");
             stringBuilder.append(cp.getHint());
             stringBuilder.append("</p>");

@@ -9,9 +9,8 @@ import java.util.List;
 @Data
 public class RadioInput extends AbstractComponent {
 
-
-    private AttrsRadio attrs;
     private Boolean required;
+    private AttrsRadio attrs;
     private String value = "";
     private Boolean visited = false;
 
