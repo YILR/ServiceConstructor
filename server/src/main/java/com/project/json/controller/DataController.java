@@ -43,7 +43,6 @@ public class DataController {
         dataService.saveScreen(screenDto);
     }
 
-
     @PostMapping("/component")
     public void saveComponent(@RequestBody ComponentDto componentDto){
         dataService.saveComponent(componentDto);

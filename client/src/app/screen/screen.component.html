@@ -2,18 +2,19 @@
 <div class="container">
   <h2>Добавление экрана</h2>
   <form class="card" [formGroup]="form" (ngSubmit)="submit()">
-    <select formControlName="type">
+    <select formControlName="type" (change)= selectChange()>
       <option *ngFor="let type of types" [value]="type" >{{type}}</option>
     </select>
 
     <mat-label>Id</mat-label>
     <input type="text" aria-label="Number" matInput
-           [matAutocomplete]="auto" formControlName="id" (keyup.insert)="onChange($event)">
-    <mat-autocomplete #auto="matAutocomplete">
+           [matAutocomplete]="auto" formControlName="id">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onChange($event)">
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id">
         {{option.id}}
       </mat-option>
     </mat-autocomplete>
+
     <label>Название</label>
     <input type="text" formControlName="header">
     <div *ngIf="form.get('type')?.value !== 'QUESTION'">
@@ -21,7 +22,7 @@
       <input type="text" formControlName="suggestion">
     </div>
 
-    <app-child *ngIf="form.get('type').value === 'CUNIQUE'" [childFrom]="form"></app-child>
+    <app-child *ngIf="form.get('type').value === 'C_UNIQUE'" [childFrom]="form"></app-child>
 
     <app-comps [childFrom]="form"></app-comps>
     <app-screen-rule [childFrom]="form" ruleName="screenRules"></app-screen-rule>

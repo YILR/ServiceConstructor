@@ -29,35 +29,16 @@ public class JsonController {
         return jsonService.createService(screenDto, code);
     }
 
-    @PostMapping("/check")
-    public ResponseEntity<List<ScreenDto>> postCheckScreens(@RequestBody List<ScreenDto> screenDto) throws IOException {
+    @PostMapping("/checkApplicant")
+    public ResponseEntity<List<ScreenDto>> postCheckApplicantScreens(@RequestBody List<ScreenDto> screenDto) throws IOException {
         return ResponseEntity.ok(jsonService.postCheckScreen(screenDto));
     }
 
-    @PostMapping("/oncheck")
+    @PostMapping("/checkCopy")
     public ResponseEntity<Collection<ScreenDto>> postOnCheckScreens(@RequestBody List<ScreenDto> screenDtos){
         Map<String, ScreenDto> map = screenDtos.stream()
                 .collect(Collectors.toMap(ScreenDto::getId, Function.identity(), (a, b) -> b, LinkedHashMap::new));
         return ResponseEntity.ok(map.values());
     }
-
-    @PostMapping("/test")
-    public ServiceInit getTest(@RequestBody ScreenDto screenDto){
-        ServiceInit serviceInit = new ServiceInit(246);
-        serviceInit.initMain(screenDto);
-        System.out.println(screenDto);
-        PersonUtil.initFl(serviceInit,null);
-        BusinessUtil.initIp(serviceInit, null);
-        LegalUtil.initUl(serviceInit, new ArrayList<>());
-        PersonUtil.representativeFl(serviceInit,null);
-        BusinessUtil.representativeIp(serviceInit,null);
-        LegalUtil.representativeUl(serviceInit,null);
-        PersonUtil.applicantFl(serviceInit,null);
-        BusinessUtil.applicantIp(serviceInit,null);
-        LegalUtil.applicantUl(serviceInit,null);
-        serviceInit.initEnd(246);
-        return serviceInit;
-    }
-
 
 }

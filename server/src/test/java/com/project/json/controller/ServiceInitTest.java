@@ -27,7 +27,7 @@ public class ServiceInitTest {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode jsonNode = mapper.readTree(new File("src\\test\\java\\com\\project\\json\\controller\\resources\\serviceinit.json"));
 
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/api/test")
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/api/create/246")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(mapper.readTree(new File("src\\test\\java\\com\\project\\json\\controller\\resources\\main.json")).toString())
                 .accept(MediaType.APPLICATION_JSON_UTF8)).andReturn();

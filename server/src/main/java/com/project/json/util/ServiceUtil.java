@@ -12,6 +12,7 @@ import com.project.json.serviceinit.screen.rule.screenrule.ScreenRule;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ServiceUtil {
@@ -28,9 +29,6 @@ public class ServiceUtil {
     }
 
     public static List<ScreenRule> mapScreenRule(List<ScreenRuleDto> screenRuleDtos) {
-
-//        if(screenRuleDtos.get(0).getNextDisplay().isEmpty())
-//            return null;
 
         return screenRuleDtos.stream().map(scrD -> {
             ScreenRule sc = new ScreenRule(scrD.getNextDisplay());
@@ -49,32 +47,30 @@ public class ServiceUtil {
         }).collect(Collectors.toList());
     }
 
-    public static void addComponentsToFields(List<AbstractComponent> applicationFields, List<ComponentDto> componentDtos) {
+    public static void addComponentsToFields(Set<AbstractComponent> applicationFields, List<ComponentDto> componentDtos) {
         for (ComponentDto cp : componentDtos) {
-            if (applicationFields.stream().noneMatch(abstractComponent -> abstractComponent.getId().equals(cp.getId()))) {
-                if (cp.getType().equals("QuestionScr")) {
-                    applicationFields.add(Facade.questFacade(cp));
-                } else if (cp.getType().equals("StringInput") || cp.getType().equals("SnilsInput")) {
-                    applicationFields.add(Facade.stringInputFacade(cp));
-                } else if (cp.getType().equals("DateInput")) {
-                    applicationFields.add(Facade.dateInputFacade(cp));
-                } else if (cp.getType().equals("AddressInput")) {
-                    applicationFields.add(Facade.addressInputFacade(cp));
-                } else if (cp.getType().equals("CheckBox")) {
-                    applicationFields.add(Facade.checkBoxFacade(cp));
-                } else if (cp.getType().equals("Lookup")) {
-                    applicationFields.add(Facade.lookupFacade(cp));
-                } else if (cp.getType().equals("FileUploadComponent")) {
-                    applicationFields.add(Facade.fileUploadComponentFacade(cp));
-                } else if (cp.getType().equals("TextArea")) {
-                    applicationFields.add(Facade.textAreaFacade(cp));
-                } else if (cp.getType().equals("RadioInput")) {
-                    applicationFields.add(Facade.radioInputFacade(cp));
-                } else if (cp.getType().equals("DropDown")) {
-                    applicationFields.add(Facade.dropDownFacade(cp));
-                } else if(cp.getType().equals("LabelSection")){
-                    applicationFields.add(Facade.labelSectionFacade(cp));
-                }
+            if (cp.getType().equals("QuestionScr")) {
+                applicationFields.add(Facade.questFacade(cp));
+            } else if (cp.getType().equals("StringInput") || cp.getType().equals("SnilsInput")) {
+                applicationFields.add(Facade.stringInputFacade(cp));
+            } else if (cp.getType().equals("DateInput")) {
+                applicationFields.add(Facade.dateInputFacade(cp));
+            } else if (cp.getType().equals("AddressInput")) {
+                applicationFields.add(Facade.addressInputFacade(cp));
+            } else if (cp.getType().equals("CheckBox")) {
+                applicationFields.add(Facade.checkBoxFacade(cp));
+            } else if (cp.getType().equals("Lookup")) {
+                applicationFields.add(Facade.lookupFacade(cp));
+            } else if (cp.getType().equals("FileUploadComponent")) {
+                applicationFields.add(Facade.fileUploadComponentFacade(cp));
+            } else if (cp.getType().equals("TextArea")) {
+                applicationFields.add(Facade.textAreaFacade(cp));
+            } else if (cp.getType().equals("RadioInput")) {
+                applicationFields.add(Facade.radioInputFacade(cp));
+            } else if (cp.getType().equals("DropDown")) {
+                applicationFields.add(Facade.dropDownFacade(cp));
+            } else if(cp.getType().equals("LabelSection")){
+                applicationFields.add(Facade.labelSectionFacade(cp));
             }
         }
     }

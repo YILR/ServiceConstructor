@@ -13,6 +13,7 @@ import com.project.json.util.ServiceUtil;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class BusinessUtil {
 
@@ -34,7 +35,7 @@ public class BusinessUtil {
     }
 
     public static void applicantIp(ServiceInit serviceInit, List<ScreenRule> screenRules) {
-        List<AbstractComponent> applicationFields = serviceInit.getApplicationFields();
+        Set<AbstractComponent> applicationFields = serviceInit.getApplicationFields();
         serviceInit.getScreens().add(new Screen("s_IP_RecipientDataManual", "CUSTOM", "Сведения о заявителе", "Далее", Arrays.asList("FullnameIP", "OGRNIP", "INNIP"), "legal_data"));
         applicationFields.add(new TextArea("FullnameIP", "Полное наименование", "2000", "org_full_name",true));
         applicationFields.add(new OtherInput("OGRNIP", "OgrnipInput", "ОГРНИП", "org_ogrn",new ValidOther(null, "Указан некорректный ОГРНИП"),  new String[]{"/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/"}));

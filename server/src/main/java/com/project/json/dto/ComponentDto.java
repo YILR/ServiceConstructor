@@ -77,12 +77,11 @@ public class ComponentDto {
         this.required = required;
     }
 
-    public ComponentDto(String id, String type, String label, FieldDto fieldDto) {
+    public ComponentDto(String id, String type, String label, List<FieldDto> fieldDto) {
         this.id = id;
         this.type = type;
         this.label = label;
-        field = new ArrayList<>();
-        field.add(fieldDto);
+        field = fieldDto;
     }
 
     public ComponentDto(String id, String type, String label, Boolean grid, List<RefDto> ref, Boolean required) {

@@ -18,10 +18,10 @@ export class ScreenService {
   }
 
   postCheck(screen: Screen[]): Observable<Screen[]> {
-    return this.http.post<Screen[]>(SERVER+'check', screen);
+    return this.http.post<Screen[]>(SERVER+'checkApplicant', screen);
   }
 
   postOnCheck(screen: Screen[]): Observable<Screen[]> {
-    return this.http.post<Screen[]>(SERVER+'oncheck', screen);
+    return this.http.post<Screen[]>(SERVER+'checkCopy', screen);
   }
 }

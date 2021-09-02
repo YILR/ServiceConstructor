@@ -727,6 +727,33 @@
       ]
     },
     {
+      "id": "s_Goal",
+      "name": "Цель обращения",
+      "type": "QUESTION",
+      "header": "Цель обращения",
+      "components": [
+        "q1_Goal"
+      ]
+    },
+    {
+      "id": "s_KP_OA_01",
+      "name": "Кто обращается за услугой?",
+      "type": "QUESTION",
+      "header": "Кто обращается за услугой?",
+      "components": [
+        "q_KP_OA_01"
+      ]
+    },
+    {
+      "id": "s_KP_OA_02",
+      "name": "Укажите категорию заявителя",
+      "type": "QUESTION",
+      "header": "Укажите категорию заявителя",
+      "components": [
+        "q_KP_OA_02"
+      ]
+    },
+    {
       "id": "s_CompetentOrganization",
       "name": "Выбор уполномоченного органа, предоставляющего услугу",
       "type": "UNIQUE",
@@ -1408,6 +1435,7 @@
       "required": false,
       "attrs": {
         "fstuc": "all",
+        "customUnrecLabel": "При наличии",
         "validation": [
           {
             "type": "RegExp",
@@ -2002,6 +2030,51 @@
       }
     },
     {
+      "id": "q1_Goal",
+      "type": "QuestionScr",
+      "label": "",
+      "attrs": {
+        "answers": [
+          {
+            "label": "",
+            "value": "",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          }
+        ]
+      }
+    },
+    {
+      "id": "q_KP_OA_01",
+      "type": "QuestionScr",
+      "label": "",
+      "attrs": {
+        "answers": [
+          {
+            "label": "",
+            "value": "",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          }
+        ]
+      }
+    },
+    {
+      "id": "q_KP_OA_02",
+      "type": "QuestionScr",
+      "label": "",
+      "attrs": {
+        "answers": [
+          {
+            "label": "",
+            "value": "",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          }
+        ]
+      }
+    },
+    {
       "id": "Organization",
       "type": "MapService",
       "label": "<p>Выберите подразделение</p>",
@@ -2069,6 +2142,7 @@
       "id": "MethodGettingResults_Choose",
       "type": "RadioInput",
       "label": "",
+      "required": true,
       "attrs": {
         "supportedValues": [
           {
@@ -2089,7 +2163,6 @@
         ],
         "isVertical": true
       },
-      "required": true,
       "value": "",
       "visited": false
     },
@@ -2212,6 +2285,17 @@
         "nextDisplay": "s_FL_RecipientFactAddressData"
       }
     ],
+    "s_FL_RecipientFactAddressData": [
+      {
+        "conditions": [
+          {
+            "field": "",
+            "visited": true
+          }
+        ],
+        "nextDisplay": ""
+      }
+    ],
     "s_IP_RecipientData": [
       {
         "conditions": [
@@ -2243,6 +2327,17 @@
           }
         ],
         "nextDisplay": "s_IP_RecipientRegAddressData"
+      }
+    ],
+    "s_IP_RecipientRegAddressData": [
+      {
+        "conditions": [
+          {
+            "field": "",
+            "visited": true
+          }
+        ],
+        "nextDisplay": ""
       }
     ],
     "s_UL_RecipientData": [
@@ -2315,6 +2410,15 @@
       {
         "conditions": [
           {
+            "field": "",
+            "visited": true
+          }
+        ],
+        "nextDisplay": ""
+      },
+      {
+        "conditions": [
+          {
             "protectedField": "userRole",
             "fieldType": "String",
             "predicate": "equals",
@@ -2329,7 +2433,17 @@
         "nextDisplay": "s_AuthorityDocument_Employee"
       }
     ],
-    "s_AuthorityDocument_Employee": [],
+    "s_AuthorityDocument_Employee": [
+      {
+        "conditions": [
+          {
+            "field": "",
+            "visited": true
+          }
+        ],
+        "nextDisplay": ""
+      }
+    ],
     "s_FL_RepresentativeData": [
       {
         "conditions": [
@@ -2591,6 +2705,17 @@
         "nextDisplay": "s_AuthorityDocument_FL"
       }
     ],
+    "s_AuthorityDocument_FL": [
+      {
+        "conditions": [
+          {
+            "field": "f_AuthorityDocument_FL",
+            "visited": true
+          }
+        ],
+        "nextDisplay": ""
+      }
+    ],
     "s_IP_RecipientDataManual": [
       {
         "conditions": [
@@ -2602,6 +2727,17 @@
         "nextDisplay": "s_AuthorityDocument_IP"
       }
     ],
+    "s_AuthorityDocument_IP": [
+      {
+        "conditions": [
+          {
+            "field": "f_AuthorityDocument_IP",
+            "visited": true
+          }
+        ],
+        "nextDisplay": ""
+      }
+    ],
     "s_UL_RecipientDataManual": [
       {
         "conditions": [
@@ -2611,6 +2747,50 @@
           }
         ],
         "nextDisplay": "s_AuthorityDocument_UL"
+      }
+    ],
+    "s_AuthorityDocument_UL": [
+      {
+        "conditions": [
+          {
+            "field": "f_AuthorityDocument_UL",
+            "visited": true
+          }
+        ],
+        "nextDisplay": ""
+      }
+    ],
+    "s_Goal": [
+      {
+        "conditions": [
+          {
+            "field": "q1_Goal",
+            "visited": true
+          }
+        ],
+        "nextDisplay": "s_KP_OA_01"
+      }
+    ],
+    "s_KP_OA_01": [
+      {
+        "conditions": [
+          {
+            "field": "",
+            "visited": true
+          }
+        ],
+        "nextDisplay": ""
+      }
+    ],
+    "s_KP_OA_02": [
+      {
+        "conditions": [
+          {
+            "field": "",
+            "visited": true
+          }
+        ],
+        "nextDisplay": ""
       }
     ],
     "s_CompetentOrganization": [

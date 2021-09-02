@@ -28,7 +28,7 @@ public class ServiceInit {
     private int draftTtl = 90;
     private boolean saveDraftModeEnabled = true;
     private List<AbstractScreen> screens = new ArrayList<>();
-    private List<AbstractComponent> applicationFields = new ArrayList<>();
+    private Set<AbstractComponent> applicationFields = new LinkedHashSet<>();
     private Map<String, List<ScreenRule>> screenRules = new LinkedHashMap<>();
     private Map<String, List<CycleScreenRule>> cycledScreenRules;
 
@@ -70,6 +70,7 @@ public class ServiceInit {
         screens.add(new Screen("s_CompetentOrganization", "UNIQUE", "Выбор уполномоченного органа, предоставляющего услугу", "Далее", "Organization"));
         applicationFields.add(new MapService("Organization", "<p>Выберите подразделение</p>", code));
         put("s_CompetentOrganization", Collections.singletonList(new ScreenRule("Organization", "s_MethodGettingResults")));
+
         List<ComponentDto> componentDtos = new ArrayList<>();
         componentDtos.add(new ComponentDto("MethodGettingResults_Info", "LabelSection", "<p>Электронный результат предоставления услуги будет предоставлен в Ваш личный кабинет на ЕПГУ.</p>"));
         componentDtos.add(new ComponentDto("IsPaperDocumentRequired", "CheckBox", "Получить дополнительно результат на бумажном носителе"));
@@ -77,6 +78,7 @@ public class ServiceInit {
         screens.add(new Screen("s_MethodGettingResults", "CUSTOM", "Способ получения результата", "Подать заявление", ServiceUtil.mapIdComponents(componentDtos)));
         ServiceUtil.addComponentsToFields(applicationFields, componentDtos);
         put("s_MethodGettingResults", Collections.singletonList(new ScreenRule("IsPaperDocumentRequired", "RedirectScreenPersonalPage")));
+
         Screen redirect = new Screen("RedirectScreenPersonalPage", "EMPTY", "", null, "RedirectComponentpp");
         redirect.setIsTerminal(true);
         screens.add(redirect);
@@ -88,17 +90,13 @@ public class ServiceInit {
         if (screenDto.getType().equals("REPEATABLE")) {
             String idComp = screenDto.getId().substring(2) + "Block";
             screens.add(new Screen(screenDto.getId(), screenDto.getType(), screenDto.getHeader(), "Далее", idComp, screenDto.getSuggestion()));
-            if (applicationFields.stream().noneMatch(abstractComponent -> abstractComponent.getId().equals(idComp))) {
-                applicationFields.add(new RepeatableField(idComp, ServiceUtil.mapIdComponents(screenDto.getComponents())));
-            }
+            applicationFields.add(new RepeatableField(idComp, ServiceUtil.mapIdComponents(screenDto.getComponents())));
         } else if (screenDto.getType().equals("QUESTION")) {
             screens.add(new Screen(screenDto.getId(), screenDto.getType(), screenDto.getHeader(), null, ServiceUtil.mapIdComponents(screenDto.getComponents())));
-        } else if (screenDto.getType().equals("CUNIQUE")) {
+        } else if (screenDto.getType().equals("C_UNIQUE")) {
             screens.add(new Screen(screenDto.getId(), "UNIQUE", screenDto.getHeader(), "Далее", screenDto.getChild().getId(), screenDto.getSuggestion()));
             ChildDto childDto = screenDto.getChild();
-            if (applicationFields.stream().noneMatch(abstractComponent -> abstractComponent.getId().equals(childDto.getId()))) {
-                applicationFields.add(new ChildrenList(childDto.getId(), childDto.getLabel(), childDto.getSingleChild(), childDto.getIsCycled(), childDto.getMinAge(), childDto.getMaxAge(), ServiceUtil.mapIdComponents(screenDto.getComponents())));
-            }
+            applicationFields.add(new ChildrenList(childDto.getId(), childDto.getLabel(), childDto.getSingleChild(), childDto.getIsCycled(), childDto.getMinAge(), childDto.getMaxAge(), ServiceUtil.mapIdComponents(screenDto.getComponents())));
         } else {
             screens.add(new Screen(screenDto.getId(), screenDto.getType(), screenDto.getHeader(), "Далее", ServiceUtil.mapIdComponents(screenDto.getComponents()), screenDto.getSuggestion()));
         }
@@ -111,16 +109,13 @@ public class ServiceInit {
 
     public void addScreen(String id, String header, String idCompon, String typeComp, String labelComp, String addrType, String nextDisplay) {
         screens.add(new Screen(id, "UNIQUE", header, "Верно", idCompon));
-        if (applicationFields.stream().noneMatch(abstractComponent -> abstractComponent.getId().equals(idCompon))) {
-            applicationFields.add(new ConfirmData(idCompon, typeComp, labelComp, addrType));
-        }
+        applicationFields.add(new ConfirmData(idCompon, typeComp, labelComp, addrType));
         put(id, Collections.singletonList(new ScreenRule(idCompon, nextDisplay)));
     }
 
     public void addScreen(String id, String header, String idCompon, String typeComp, String labelComp, String addrType, String... nextDisplay) {
         screens.add(new Screen(id, "UNIQUE", header, "Верно", idCompon));
-        if (applicationFields.stream().noneMatch(abstractComponent -> abstractComponent.getId().equals(idCompon)))
-            applicationFields.add(new ConfirmData(idCompon, typeComp, labelComp, addrType));
+        applicationFields.add(new ConfirmData(idCompon, typeComp, labelComp, addrType));
         put(id, Arrays.asList(new ScreenRule("q_KP_OA_02", "BUSINESS", nextDisplay[0]), new ScreenRule("q_KP_OA_02", "LEGAL", nextDisplay[1]), new ScreenRule("q_KP_OA_02", "PERSON_RF", nextDisplay[2])));
     }
 

@@ -13,7 +13,7 @@ export class TypesComps {
     UNIQUE: ['FileUploadComponent'],
     INFO: ['InfoScr', 'LabelSection', 'InfoComponent'],
     REPEATABLE: this.customs,
-    CUNIQUE: this.customs,
+    C_UNIQUE: this.customs,
     EMPTY: ['Redirect']
   };
 

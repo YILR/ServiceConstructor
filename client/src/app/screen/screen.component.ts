@@ -9,6 +9,7 @@ import {map, startWith} from "rxjs/operators";
 import {ScreenService} from "../service/screen.service";
 import {CompsComponent} from "../comps/comps.component";
 import {Components} from "../models/Component";
+import {NotificationService} from "../service/notification.service";
 
 @Component({
   selector: 'app-screen',
@@ -18,7 +19,7 @@ import {Components} from "../models/Component";
 export class ScreenComponent implements OnInit, AfterViewInit {
 
   form!: FormGroup;
-  types: string[] = ['INFO', 'QUESTION', 'CUSTOM', 'UNIQUE', 'REPEATABLE', 'CUNIQUE', 'EMPTY']
+  types: string[] = ['INFO', 'QUESTION', 'CUSTOM', 'UNIQUE', 'REPEATABLE', 'C_UNIQUE', 'EMPTY']
   screens: Screen[] = JSON.parse(localStorage.getItem('screen') || '[]');
 
   filteredOptions!: Observable<Screen[]>;
@@ -27,7 +28,8 @@ export class ScreenComponent implements OnInit, AfterViewInit {
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router,
               private modelService: ModelService, private dataService: DataService,
-              private screenService: ScreenService, private cdRef: ChangeDetectorRef) {
+              private screenService: ScreenService, private cdRef: ChangeDetectorRef,
+              private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -48,9 +50,9 @@ export class ScreenComponent implements OnInit, AfterViewInit {
       if (par.type === undefined)
         this.getScreen(par.id);
       else if(par.type === 'db')
-        this.getScreenDb(par.id)
+        this.getScreenFromDb(par.id)
       else if (par.type === 'component')
-        this.com.getComponent(par.id)
+        this.com.getComponent(par.id, 0)
     })
     this.cdRef.detectChanges();
   }
@@ -70,14 +72,14 @@ export class ScreenComponent implements OnInit, AfterViewInit {
   }
 
   saveScreen() {
-    this.dataService.saveScreen(this.form.value).subscribe(() =>
-      console.log("Done!")
-    );
+    this.dataService.saveScreen(this.form.value).subscribe(() => {
+        console.log("Done!")
+      this.notificationService.showSnackBar('Экран сохранен')
+      });
   }
 
-
   onChange($event: any) {
-    this.getScreenDb($event.target.value)
+    this.getScreenFromDb($event.option.value)
   }
 
   private buildForm(): void {
@@ -101,7 +103,7 @@ export class ScreenComponent implements OnInit, AfterViewInit {
     })
   }
 
-  private getScreenDb(id: any){
+  private getScreenFromDb(id: any){
     if (id !== undefined) {
       this.dataService.getScreen(id).subscribe((s) => {
         this.autoComplete(s);
@@ -193,4 +195,7 @@ export class ScreenComponent implements OnInit, AfterViewInit {
     }
   }
 
+  selectChange() {
+    this.com.ngSelectChange()
+  }
 }

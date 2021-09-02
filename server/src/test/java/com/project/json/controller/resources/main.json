@@ -1,29 +1,345 @@
-{
-  "id": "s_main",
-  "type": "INFO",
-  "header": "",
-  "components": [
-    {
-      "id": "MainInfo",
-      "type": "InfoScr",
-      "label": "",
-      "required": true,
-      "field": [
-        {}
-      ],
-      "fileType": {},
-      "maxSize": 50
-    }
-  ],
-  "screenRules": [
-    {
-      "nextDisplay": "s_Goal",
-      "conditions": [
-        {
-          "field": "MainInfo",
-          "value": ""
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "id": "s_main",
+    "type": "INFO",
+    "header": "",
+    "components": [
+      {
+        "id": "MainInfo",
+        "type": "InfoScr",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_Goal",
+        "conditions": [
+          {
+            "field": "MainInfo",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_Goal",
+    "type": "QUESTION",
+    "header": "Цель обращения",
+    "components": [
+      {
+        "id": "q1_Goal",
+        "type": "QuestionScr",
+        "label": "",
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "s_KP_OA_01",
+        "conditions": [
+          {
+            "field": "q1_Goal",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_FL_RecipientData",
+    "type": "UNIQUE",
+    "header": "Сведения о заявителе",
+    "components": [
+      {
+        "id": "RecipientData",
+        "type": "",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_IP_RecipientData",
+    "type": "UNIQUE",
+    "header": "Сведения о заявителе",
+    "components": [
+      {
+        "id": "RecipientBusinessmanData",
+        "type": "",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_UL_RecipientData",
+    "type": "UNIQUE",
+    "header": "Сведения о заявителе",
+    "components": [
+      {
+        "id": "RecipientLegalData",
+        "type": "",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_KP_OA_01",
+    "type": "QUESTION",
+    "header": "Кто обращается за услугой?",
+    "components": [
+      {
+        "id": "q_KP_OA_01",
+        "type": "QuestionScr",
+        "label": "",
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_KP_OA_02",
+    "type": "QUESTION",
+    "header": "Укажите категорию заявителя",
+    "components": [
+      {
+        "id": "q_KP_OA_02",
+        "type": "QuestionScr",
+        "label": "",
+        "field": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_FL_RepresentativeData",
+    "type": "UNIQUE",
+    "header": "Сведения о представителе",
+    "components": [
+      {
+        "id": "RepresentativeData",
+        "type": "",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_IP_RepresentativeData",
+    "type": "UNIQUE",
+    "header": "Сведения о представителе",
+    "components": [
+      {
+        "id": "RepresentativeBusinessmanData",
+        "type": "",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_UL_RepresentativeData",
+    "type": "UNIQUE",
+    "header": "Сведения о представителе",
+    "components": [
+      {
+        "id": "RepresentativeLegalData",
+        "type": "",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_FL_RecipientDataManual",
+    "type": "CUSTOM",
+    "header": "Сведения о заявителе",
+    "components": [
+      {
+        "id": "LastName",
+        "type": "",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "f_AuthorityDocument_FL",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_IP_RecipientDataManual",
+    "type": "CUSTOM",
+    "header": "Сведения о заявителе",
+    "components": [
+      {
+        "id": "FullnameIP",
+        "type": "",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "f_AuthorityDocument_IP",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s_UL_RecipientDataManual",
+    "type": "CUSTOM",
+    "header": "Сведения о заявителе",
+    "components": [
+      {
+        "id": "Fullname",
+        "type": "",
+        "label": "",
+        "grid": false,
+        "atLeastOne": false
+      }
+    ],
+    "screenRules": [
+      {
+        "nextDisplay": "",
+        "conditions": [
+          {
+            "field": "f_AuthorityDocument_UL",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  }
+]

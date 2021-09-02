@@ -17,8 +17,8 @@ export class DataService {
     return this.http.get<Screen[]>(SERVER+'allScreens');
   }
 
-  getAllComponents(): Observable<any>{
-    return this.http.get(SERVER+'allComponents');
+  getAllComponents(): Observable<Components[]>{
+    return this.http.get<Components[]>(SERVER+'allComponents');
   }
 
   getScreen(id: string): Observable<Screen>{

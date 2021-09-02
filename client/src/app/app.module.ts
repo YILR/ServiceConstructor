@@ -23,6 +23,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { DialogBoxComponent } from './table/dialog-box/dialog-box.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { ChildComponent } from './child/child.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ChildComponent } from './child/child.component';
     MatDialogModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

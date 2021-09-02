@@ -8,17 +8,19 @@
         <div [formGroupName]="idx">
 
           <select formControlName="type">
-            <option *ngFor="let type of typesComp" [value]="type">{{type}}</option>
+            <option *ngFor="let type of getComponentsByType" [value]="type">{{type}}</option>
           </select>
 
           <mat-label>Id {{idx + 1}}</mat-label>
-          <input type="text" aria-label="Number" matInput
-                 [matAutocomplete]="auto" formControlName="id" (keyup.control)="onChange($event)">
-          <mat-autocomplete #auto="matAutocomplete">
+          <input type="text" matInput
+                 [matAutocomplete]="auto" formControlName="id">
+
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onChange($event, idx)">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id">
               {{option.id}}
             </mat-option>
           </mat-autocomplete>
+
           <div [ngSwitch]="control.value.type">
 
             <div *ngIf="control.value.type === 'Lookup'">
@@ -143,7 +145,7 @@
               <input type="checkbox" formControlName="atLeastOne">
             </div>
           </div>
-          <button type="button" class="btn db" (click)="saveComponent(idx)">Сохранить компонент</button>
+          <button type="button" class="btn db" [disabled]="control.invalid || control.pending" (click)="saveComponent(idx)">Сохранить компонент</button>
           <button *ngIf="idx>=1" type="button" class="btn del" (click)="removeComponent(idx)">X</button>
         </div>
 

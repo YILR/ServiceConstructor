@@ -10,8 +10,8 @@ export class ModelService {
 
   public get getComponent(): FormGroup{
     return new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      type: new FormControl(''),
+      id: new FormControl('', [Validators.required, Validators.pattern('^\\S+')]),
+      type: new FormControl('', [Validators.required]),
       label: new FormControl(''),
       required: new FormControl(true),
       hint: new FormControl(null),

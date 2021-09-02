@@ -10,10 +10,7 @@ import com.project.json.serviceinit.screen.component.textarea.TextArea;
 import com.project.json.serviceinit.screen.rule.screenrule.ScreenRule;
 import com.project.json.util.ServiceUtil;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class LegalUtil {
 
@@ -48,7 +45,7 @@ public class LegalUtil {
     }
 
     public static void applicantUl(ServiceInit serviceInit, List<ScreenRule> screenRules) {
-        List<AbstractComponent> applicationFields = serviceInit.getApplicationFields();
+        Set<AbstractComponent> applicationFields = serviceInit.getApplicationFields();
         serviceInit.getScreens().add(new Screen("s_UL_RecipientDataManual", "CUSTOM", "Сведения о заявителе", "Далее", Arrays.asList("Fullname", "OGRN", "INN"), "legal_data"));
         applicationFields.add(new TextArea("Fullname", "Полное наименование", "2000", "org_full_name",true));
         applicationFields.add(new OtherInput("OGRN", "OgrnInput", "ОГРН", "org_ogrn",new ValidOther(null, "Указан некорректный ОГРН"),  new String[]{"/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/",}));

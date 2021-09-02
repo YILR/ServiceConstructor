@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ScreenRepository extends JpaRepository<ScreenDto, String> {
 
-    void deleteById(String id);
 }

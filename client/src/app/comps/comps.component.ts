@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from "@angular/forms";
 import {TypesComps} from "../models/types/types-comps";
 import {ModelService} from "../service/model.service";
@@ -6,30 +6,42 @@ import {DataService} from "../service/data.service";
 import {Observable} from "rxjs";
 import {Components} from "../models/Component";
 import {map, startWith} from "rxjs/operators";
+import {NotificationService} from "../service/notification.service";
 
 @Component({
   selector: 'app-comps',
   templateUrl: './comps.component.html',
   styleUrls: ['./comps.component.scss']
 })
-export class CompsComponent implements OnInit {
+export class CompsComponent  {
 
   @Input()
   public childFrom!: FormGroup;
   fileType: string[] = this.typesComps.fileType;
   filteredOptions!: Observable<Components[]>;
+  private components: Components[];
 
-  constructor(public typesComps: TypesComps, public modelService: ModelService, private dataService: DataService) {
+  constructor(public typesComps: TypesComps, public modelService: ModelService,
+              private dataService: DataService, private notificationService: NotificationService) {
+    this.dataService.getAllComponents().subscribe(comps => {
+      this.components = comps;
+      if(this.getComponentsByType !== undefined){
+        this.ngSelectChange();
+      }
+    })
+
   }
 
-  ngOnInit(): void {
-    this.dataService.getAllComponents().subscribe((copms) => {
-      this.filteredOptions = this.childFrom.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value.id, copms))
-        );
-    })
+  public ngSelectChange(){
+
+    let comps = this.components.filter(comp =>
+      this.getComponentsByType.includes(comp.type));
+
+    this.filteredOptions = this.childFrom.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value.id, comps))
+      );
   }
 
   private _filter(value: string, comps: Components[]): Components[] {
@@ -71,7 +83,7 @@ export class CompsComponent implements OnInit {
     return <FormArray>this.childFrom.get('components')?.get([idx])?.get('ref');
   }
 
-  get typesComp() {
+  get getComponentsByType() {
     return this.typesComps.types[this.childFrom.get('type')?.value];
   }
 
@@ -98,13 +110,13 @@ export class CompsComponent implements OnInit {
     return this.fileType;
   }
 
-  onChange($event: any) {
-    this.getComponent($event.target.value)
+  onChange($event: any, idx: number) {
+    this.getComponent($event.option.value, idx)
   }
 
-  public getComponent(id: any) {
+  public getComponent(id: any, idx: number) {
     if (id !== undefined) {
-      this.dataService.getComponent(id).subscribe(copm => this.autoComplete(copm));
+      this.dataService.getComponent(id).subscribe(copm => this.autoComplete(copm, idx));
     }
   }
 
@@ -116,24 +128,25 @@ export class CompsComponent implements OnInit {
     return  !['StringInput', 'SnilsInput'].includes(type);
   }
 
-  private autoComplete(comp: Components) {
+  private autoComplete(comp: Components, idx: number) {
 
-    this.childFrom.get('components')?.get([0])?.patchValue(comp)
+    this.childFrom.get('components')?.get([idx])?.patchValue(comp)
 
     if (comp && comp.type === 'QuestionScr') {
       comp.field?.forEach((ans, n) => {
         if( n >= 1){
-          this.addField(0);
-          (this.childFrom.get('components')?.get([0])?.get('field') as FormArray).at(n).patchValue(ans);
+          this.addField(idx);
+          (this.childFrom.get('components')?.get([idx])?.get('field') as FormArray).at(n).patchValue(ans);
         }
       });
     }
   }
 
   saveComponent(idx: number): void {
-    this.dataService.saveComponent(this.childFrom.get('components')?.get([idx])?.value).subscribe(() =>
-      console.log("Done!")
-    );
+    this.dataService.saveComponent(this.childFrom.get('components')?.get([idx])?.value).subscribe(() => {
+        console.log("Done!")
+        this.notificationService.showSnackBar('Компонент сохранен')
+      });
   }
 
 }
