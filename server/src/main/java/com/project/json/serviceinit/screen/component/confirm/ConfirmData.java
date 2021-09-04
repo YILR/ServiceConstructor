@@ -2,8 +2,10 @@ package com.project.json.serviceinit.screen.component.confirm;
 
 import com.project.json.serviceinit.screen.component.AbstractComponent;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class ConfirmData extends AbstractComponent {
 
     private AttrsConfirm attrs = new AttrsConfirm();
@@ -11,9 +13,7 @@ public class ConfirmData extends AbstractComponent {
     private Boolean visited = false;
 
     public ConfirmData(String id, String type, String label, String addrType) {
-        this.id = id;
-        this.type = type;
-        this.label = label;
+        super(id, type, label);
         addAction(addrType);
     }
 

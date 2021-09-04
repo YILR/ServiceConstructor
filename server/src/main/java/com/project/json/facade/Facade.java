@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class Facade {
 
     public static QuestComponent questFacade(ComponentDto cp){
-        return new QuestComponent(cp.getId(), cp.getField());
+        return new QuestComponent(cp.getId(), cp.getType(), cp.getField());
     }
 
     public static StringInput stringInputFacade(ComponentDto cp){
@@ -40,7 +40,7 @@ public class Facade {
     }
 
     public static DateInput dateInputFacade(ComponentDto cp){
-        DateInput dateInput = new DateInput(cp.getId(), cp.getLabel(), cp.getSuggestionId(),cp.getRequired());
+        DateInput dateInput = new DateInput(cp.getId(), cp.getType(), cp.getLabel(), cp.getSuggestionId(),cp.getRequired());
         dateInput.getAttrs().setFields(cp.getFieldName());
         if(cp.getRef() != null){
             dateInput.getAttrs().putRef(cp.getRef());
@@ -49,31 +49,31 @@ public class Facade {
     }
 
     public static AddressInput addressInputFacade(ComponentDto cp){
-        return new AddressInput(cp.getId(), cp.getLabel(), cp.getRequired());
+        return new AddressInput(cp.getId(), cp.getType(), cp.getLabel(), cp.getRequired());
     }
 
     public static CheckBox checkBoxFacade(ComponentDto cp){
-        CheckBox checkBox =  new CheckBox(cp.getId(), cp.getLabel());
+        CheckBox checkBox =  new CheckBox(cp.getId(), cp.getType(), cp.getLabel());
         if(cp.getAtLeastOne())
             checkBox.getAttrs().validation();
         return checkBox;
     }
 
     public static Lookup lookupFacade(ComponentDto cp){
-        return new Lookup(cp.getId(), cp.getLabel(), cp.getDictionaryType());
+        return new Lookup(cp.getId(), cp.getType(), cp.getLabel(), cp.getDictionaryType());
     }
 
     public static FileUploadComponent fileUploadComponentFacade(ComponentDto cp){
         StringBuilder stringBuilder = builderLabel(cp);
-        return new FileUploadComponent(cp.getId(), stringBuilder.toString(), cp.getSuggestionId(), mapToString(cp.getFileType()), cp.getMaxSize(), cp.getRequired());
+        return new FileUploadComponent(cp.getId(), cp.getType(), stringBuilder.toString(), cp.getSuggestionId(), mapToString(cp.getFileType()), cp.getMaxSize(), cp.getRequired());
     }
 
     public static TextArea textAreaFacade(ComponentDto cp){
-        return new TextArea(cp.getId(), cp.getLabel(), cp.getSuggestionId(), cp.getCharsAmount(), cp.getRequired());
+        return new TextArea(cp.getId(), cp.getType(), cp.getLabel(), cp.getSuggestionId(), cp.getCharsAmount(), cp.getRequired());
     }
 
     public static RadioInput radioInputFacade(ComponentDto cp){
-        RadioInput radioInput = new RadioInput(cp.getId(), cp.getLabel(), cp.getRequired(), cp.getFieldName(), cp.getField(), cp.getHidden());
+        RadioInput radioInput = new RadioInput(cp.getId(), cp.getType(), cp.getLabel(), cp.getRequired(), cp.getFieldName(), cp.getField(), cp.getHidden());
         if(cp.getPosition().equals("isHorizontal"))
             radioInput.getAttrs().setIsHorizontal(true);
         else radioInput.getAttrs().setIsVertical(true);
@@ -85,11 +85,11 @@ public class Facade {
     }
 
     public static DropDown dropDownFacade(ComponentDto cp){
-        return new DropDown(cp.getId(), cp.getLabel(), cp.getField(), cp.getRequired());
+        return new DropDown(cp.getId(), cp.getType(), cp.getLabel(), cp.getField(), cp.getRequired());
     }
 
     public static LabelSection labelSectionFacade(ComponentDto cp){
-        return new LabelSection(cp.getId(), cp.getLabel());
+        return new LabelSection(cp.getId(), cp.getType(), cp.getLabel());
     }
 
     private static StringBuilder builderLabel(ComponentDto cp) {

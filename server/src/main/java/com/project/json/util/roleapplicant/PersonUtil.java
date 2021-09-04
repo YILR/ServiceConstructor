@@ -36,7 +36,8 @@ public class PersonUtil {
 
     public static void applicantFl(ServiceInit serviceInit, List<ScreenRule> screenRules) {
         serviceInit.getScreens().add(new Screen("s_FL_RecipientDataManual", "CUSTOM", "Сведения о заявителе", "Далее", Arrays.asList("LastName", "FirstName", "MiddleName"), "doc_rec_pd"));
-        ServiceUtil.addComponentsToFields(serviceInit.getApplicationFields(), Arrays.asList(new ComponentDto("LastName", "StringInput", "Фамилия", new FieldDto("(^[-а-яёЁА-Я\\ ]+$)|(^$)", "Разрешен ввод кириллицы, пробела, знака «-» (тире)"), "lastname",true),
+        ServiceUtil.addComponentsToFields(serviceInit.getApplicationFields(), Arrays.asList(
+                new ComponentDto("LastName", "StringInput", "Фамилия", new FieldDto("(^[-а-яёЁА-Я\\ ]+$)|(^$)", "Разрешен ввод кириллицы, пробела, знака «-» (тире)"), "lastname",true),
                 new ComponentDto("FirstName", "StringInput", "Имя", new FieldDto("(^[-а-яёЁА-Я\\ ]+$)|(^$)", "Разрешен ввод кириллицы, пробела, знака «-» (тире)"), "firstname",true),
                 new ComponentDto("MiddleName", "StringInput", "Отчество", new FieldDto("(^[-а-яёЁА-Я\\ ]+$)|(^$)", "Разрешен ввод кириллицы, пробела, знака «-» (тире)"), "middlename",false)));
         serviceInit.put("s_FL_RecipientDataManual", Collections.singletonList(new ScreenRule("LastName", "s_FL_RecipientDataDocumentManual")));

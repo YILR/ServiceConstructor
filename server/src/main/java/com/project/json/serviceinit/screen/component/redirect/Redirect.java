@@ -2,8 +2,10 @@ package com.project.json.serviceinit.screen.component.redirect;
 
 import com.project.json.serviceinit.screen.component.AbstractComponent;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class Redirect extends AbstractComponent {
 
     private AttrsRed attrs;

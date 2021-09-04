@@ -47,7 +47,7 @@ public class LegalUtil {
     public static void applicantUl(ServiceInit serviceInit, List<ScreenRule> screenRules) {
         Set<AbstractComponent> applicationFields = serviceInit.getApplicationFields();
         serviceInit.getScreens().add(new Screen("s_UL_RecipientDataManual", "CUSTOM", "Сведения о заявителе", "Далее", Arrays.asList("Fullname", "OGRN", "INN"), "legal_data"));
-        applicationFields.add(new TextArea("Fullname", "Полное наименование", "2000", "org_full_name",true));
+        applicationFields.add(new TextArea("Fullname","TextArea", "Полное наименование", "2000", "org_full_name",true));
         applicationFields.add(new OtherInput("OGRN", "OgrnInput", "ОГРН", "org_ogrn",new ValidOther(null, "Указан некорректный ОГРН"),  new String[]{"/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/",}));
         applicationFields.add(new OtherInput("INN", "LegalInnInput", "ИНН", "org_inn",new ValidOther(null, "Указан некорректный ИНН"),  new String[]{"/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/", "/\\d/"}));
         serviceInit.put("s_UL_RecipientDataManual", Collections.singletonList(new ScreenRule("Fullname", "s_AuthorityDocument_UL")));

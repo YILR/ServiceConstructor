@@ -2,10 +2,12 @@ package com.project.json.serviceinit.screen.component.repeatable;
 
 import com.project.json.serviceinit.screen.component.AbstractComponent;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class RepeatableField extends AbstractComponent {
 
     private AttrsRep attrs;

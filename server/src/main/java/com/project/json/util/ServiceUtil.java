@@ -37,8 +37,6 @@ public class ServiceUtil {
         }).collect(Collectors.toList());
     }
 
-
-
     public static List<CycleScreenRule> mapCycleScreenRule(List<CycleScreenRuleDto> cycleScreenRuleDtos){
         return cycleScreenRuleDtos.stream().map(cycleScrR -> {
             CycleScreenRule cSR = new CycleScreenRule(cycleScrR.getNextDisplay());

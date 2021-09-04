@@ -12,4 +12,13 @@ public abstract class AbstractComponent {
     protected String label = "";
     protected String suggestionId;
 
+    public AbstractComponent() {
+    }
+
+    public AbstractComponent(String id, String type, String label) {
+        this.id = id;
+        this.type = type;
+        this.label = label;
+    }
+
 }

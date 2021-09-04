@@ -3,10 +3,12 @@ package com.project.json.serviceinit.screen.component.stringinput;
 import com.project.json.dto.FieldDto;
 import com.project.json.serviceinit.screen.component.AbstractComponent;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class StringInput extends AbstractComponent {
 
     private Boolean required;
@@ -16,9 +18,7 @@ public class StringInput extends AbstractComponent {
 
 
     public StringInput(String id, String type, String label, String hint, List<FieldDto> valid, String mask, String suggestionId,Boolean required) {
-        this.id = id;
-        this.type = type;
-        this.label = label;
+        super(id, type, label);
         this.suggestionId = suggestionId;
         this.required = required;
         attrs.stringInit(hint, valid, mask);
