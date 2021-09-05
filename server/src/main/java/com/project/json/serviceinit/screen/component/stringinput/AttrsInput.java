@@ -61,14 +61,17 @@ public class AttrsInput {
 
     public void putRef(List<RefDto> refDtos) {
         ref = refDtos.stream()
+                .filter(Objects::nonNull)
                 .map(refDto -> new Ref(refDto.getRelatedRel(), refDto.getRelation(), RefUtil.mapRefVal(refDto.getVal())))
                 .collect(Collectors.toList());
     }
 
     private void validMap(List<FieldDto> valid) {
         if (Objects.nonNull(valid)) {
-            validation = valid.stream().filter(fieldDto -> fieldDto.getLabel() != null && !fieldDto.getLabel().equals("null"))
-                    .map(fieldDto -> new Validation(fieldDto.getLabel(), fieldDto.getValue())).collect(Collectors.toList());
+            validation = valid.stream()
+                    .filter(fieldDto -> fieldDto.getLabel() != null && !fieldDto.getLabel().equals("null"))
+                    .map(fieldDto -> new Validation(fieldDto.getLabel(), fieldDto.getValue()))
+                    .collect(Collectors.toList());
             if (validation.isEmpty())
                 validation = null;
         }

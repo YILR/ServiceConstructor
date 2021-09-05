@@ -6,10 +6,7 @@ import com.project.json.serviceinit.screen.component.stringinput.Validation;
 import com.project.json.util.RefUtil;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Data
@@ -28,7 +25,7 @@ public class AttrsDate {
     }
 
     public void setFields(String fieldName) {
-        if (fieldName != null && fieldName.isEmpty()) {
+        if (fieldName != null && fieldName.trim().isEmpty()) {
             fields = new ArrayList<>();
             fields.add(new LinkedHashMap<>());
             fields.get(0).put("fieldName", fieldName);
@@ -37,6 +34,7 @@ public class AttrsDate {
 
     public void putRef(List<RefDto> refDtos){
         ref = refDtos.stream()
+                .filter(Objects::nonNull)
                 .map(refDto -> new Ref(refDto.getRelatedRel(), refDto.getRelation(), RefUtil.mapRefVal(refDto.getVal())))
                 .collect(Collectors.toList());
     }

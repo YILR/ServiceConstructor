@@ -1,7 +1,6 @@
 package com.project.json.serviceinit;
 
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.project.json.dto.*;
 import com.project.json.serviceinit.screen.AbstractScreen;
 import com.project.json.serviceinit.screen.Screen;
@@ -21,7 +20,6 @@ import lombok.Data;
 import java.util.*;
 
 @Data
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ServiceInit {
     private String service;
     private String init = "ServiceRounting";
@@ -87,13 +85,13 @@ public class ServiceInit {
 
     public void addScreen(ScreenDto screenDto) {
 
-        if (screenDto.getType().equals("REPEATABLE")) {
+        if ("REPEATABLE".equals(screenDto.getType())) {
             String idComp = screenDto.getId().substring(2) + "Block";
             screens.add(new Screen(screenDto.getId(), screenDto.getType(), screenDto.getHeader(), "Далее", idComp, screenDto.getSuggestion()));
             applicationFields.add(new RepeatableField(idComp, ServiceUtil.mapIdComponents(screenDto.getComponents())));
-        } else if (screenDto.getType().equals("QUESTION")) {
+        } else if ("QUESTION".equals(screenDto.getType())) {
             screens.add(new Screen(screenDto.getId(), screenDto.getType(), screenDto.getHeader(), null, ServiceUtil.mapIdComponents(screenDto.getComponents())));
-        } else if (screenDto.getType().equals("C_UNIQUE")) {
+        } else if ("C_UNIQUE".equals(screenDto.getType())) {
             screens.add(new Screen(screenDto.getId(), "UNIQUE", screenDto.getHeader(), "Далее", screenDto.getChild().getId(), screenDto.getSuggestion()));
             ChildDto childDto = screenDto.getChild();
             applicationFields.add(new ChildrenList(childDto.getId(), childDto.getLabel(), childDto.getSingleChild(), childDto.getIsCycled(), childDto.getMinAge(), childDto.getMaxAge(), ServiceUtil.mapIdComponents(screenDto.getComponents())));

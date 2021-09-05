@@ -9,17 +9,13 @@ import com.project.json.serviceinit.screen.rule.cyclescreenrule.CycleScreenRule;
 import com.project.json.serviceinit.screen.rule.screenrule.ScreenRule;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ServiceUtil {
 
     public static void initService(ServiceInit serviceInit, List<ScreenDto> screenDtos) {
         screenDtos.forEach(serviceInit::addScreen);
-
     }
 
     public static List<String> mapIdComponents(List<ComponentDto> componentDtos) {
@@ -47,27 +43,27 @@ public class ServiceUtil {
 
     public static void addComponentsToFields(Set<AbstractComponent> applicationFields, List<ComponentDto> componentDtos) {
         for (ComponentDto cp : componentDtos) {
-            if (cp.getType().equals("QuestionScr")) {
+            if ("QuestionScr".equals(cp.getType())) {
                 applicationFields.add(Facade.questFacade(cp));
-            } else if (cp.getType().equals("StringInput") || cp.getType().equals("SnilsInput")) {
+            } else if ("StringInput".equals(cp.getType()) || "SnilsInput".equals(cp.getType())) {
                 applicationFields.add(Facade.stringInputFacade(cp));
-            } else if (cp.getType().equals("DateInput")) {
+            } else if ("DateInput".equals(cp.getType())) {
                 applicationFields.add(Facade.dateInputFacade(cp));
-            } else if (cp.getType().equals("AddressInput")) {
+            } else if ("AddressInput".equals(cp.getType())) {
                 applicationFields.add(Facade.addressInputFacade(cp));
-            } else if (cp.getType().equals("CheckBox")) {
+            } else if ("CheckBox".equals(cp.getType())) {
                 applicationFields.add(Facade.checkBoxFacade(cp));
-            } else if (cp.getType().equals("Lookup")) {
+            } else if ("Lookup".equals(cp.getType())) {
                 applicationFields.add(Facade.lookupFacade(cp));
-            } else if (cp.getType().equals("FileUploadComponent")) {
+            } else if ("FileUploadComponent".equals(cp.getType())) {
                 applicationFields.add(Facade.fileUploadComponentFacade(cp));
-            } else if (cp.getType().equals("TextArea")) {
+            } else if ("TextArea".equals(cp.getType())) {
                 applicationFields.add(Facade.textAreaFacade(cp));
-            } else if (cp.getType().equals("RadioInput")) {
+            } else if ("RadioInput".equals(cp.getType())) {
                 applicationFields.add(Facade.radioInputFacade(cp));
-            } else if (cp.getType().equals("DropDown")) {
+            } else if ("DropDown".equals(cp.getType())) {
                 applicationFields.add(Facade.dropDownFacade(cp));
-            } else if(cp.getType().equals("LabelSection")){
+            } else if("LabelSection".equals(cp.getType())){
                 applicationFields.add(Facade.labelSectionFacade(cp));
             }
         }
