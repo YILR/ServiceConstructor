@@ -7,14 +7,14 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class Ref<T> {
+public class Ref {
 
     private String relatedRel;
     @JsonSerialize(using = CustomListSerializer.class)
-    private List<T> val;
+    private List<Object> val;
     private String relation;
 
-    public Ref(String relatedRel, String relation, List<T> val) {
+    public Ref(String relatedRel, String relation, List<Object> val) {
         this.relatedRel = relatedRel;
         this.val = val;
         this.relation = relation;
