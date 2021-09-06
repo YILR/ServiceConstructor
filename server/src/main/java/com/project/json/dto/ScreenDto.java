@@ -13,7 +13,7 @@ import static javax.persistence.CascadeType.*;
 
 
 @Data
-@EqualsAndHashCode(of = {"id", "components"})
+@EqualsAndHashCode(of = {"id"})
 @Entity
 @Table(name = "screen")
 public class ScreenDto {

@@ -2051,8 +2051,14 @@
       "attrs": {
         "answers": [
           {
-            "label": "",
-            "value": "",
+            "label": "Заявитель",
+            "value": "1",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          },
+          {
+            "label": "Представитель",
+            "value": "2",
             "type": "nextStep",
             "action": "getNextScreen"
           }
@@ -2066,8 +2072,20 @@
       "attrs": {
         "answers": [
           {
-            "label": "",
-            "value": "",
+            "label": "Физическое лицо",
+            "value": "PERSON_RF",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          },
+          {
+            "label": "Индивидуальный предприниматель",
+            "value": "BUSINESS",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          },
+          {
+            "label": "Юридическое лицо",
+            "value": "LEGAL",
             "type": "nextStep",
             "action": "getNextScreen"
           }
@@ -2492,11 +2510,32 @@
       {
         "conditions": [
           {
-            "field": "",
-            "visited": true
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "BUSINESS"
           }
         ],
-        "nextDisplay": ""
+        "nextDisplay": "s_IP_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "LEGAL"
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "PERSON_RF"
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientDataManual"
       }
     ],
     "s_IP_RepresentativeData": [
@@ -2536,11 +2575,32 @@
       {
         "conditions": [
           {
-            "field": "",
-            "visited": true
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "BUSINESS"
           }
         ],
-        "nextDisplay": ""
+        "nextDisplay": "s_IP_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "LEGAL"
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "PERSON_RF"
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientDataManual"
       }
     ],
     "s_UL_RepresentativeData": [
@@ -2613,11 +2673,32 @@
       {
         "conditions": [
           {
-            "field": "",
-            "visited": true
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "BUSINESS"
           }
         ],
-        "nextDisplay": ""
+        "nextDisplay": "s_IP_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "LEGAL"
+          }
+        ],
+        "nextDisplay": "s_UL_RecipientDataManual"
+      },
+      {
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "visited": true,
+            "value": "PERSON_RF"
+          }
+        ],
+        "nextDisplay": "s_FL_RecipientDataManual"
       }
     ],
     "s_FL_RecipientDataManual": [

@@ -2051,8 +2051,14 @@
       "attrs": {
         "answers": [
           {
-            "label": "",
-            "value": "",
+            "label": "Заявитель",
+            "value": "1",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          },
+          {
+            "label": "Представитель",
+            "value": "2",
             "type": "nextStep",
             "action": "getNextScreen"
           }
@@ -2066,8 +2072,20 @@
       "attrs": {
         "answers": [
           {
-            "label": "",
-            "value": "",
+            "label": "Физическое лицо",
+            "value": "PERSON_RF",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          },
+          {
+            "label": "Индивидуальный предприниматель",
+            "value": "BUSINESS",
+            "type": "nextStep",
+            "action": "getNextScreen"
+          },
+          {
+            "label": "Юридическое лицо",
+            "value": "LEGAL",
             "type": "nextStep",
             "action": "getNextScreen"
           }

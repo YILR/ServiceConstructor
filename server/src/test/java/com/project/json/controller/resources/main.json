@@ -141,8 +141,12 @@
         "label": "",
         "field": [
           {
-            "label": "",
-            "value": ""
+            "label": "Заявитель",
+            "value": "1"
+          },
+          {
+            "label": "Представитель",
+            "value": "2"
           }
         ],
         "grid": false,
@@ -172,8 +176,16 @@
         "label": "",
         "field": [
           {
-            "label": "",
-            "value": ""
+            "label": "Физическое лицо",
+            "value": "PERSON_RF"
+          },
+          {
+            "label": "Индивидуальный предприниматель",
+            "value": "BUSINESS"
+          },
+          {
+            "label": "Юридическое лицо",
+            "value": "LEGAL"
           }
         ],
         "grid": false,
@@ -207,11 +219,29 @@
     ],
     "screenRules": [
       {
-        "nextDisplay": "",
+        "nextDisplay": "s_IP_RecipientDataManual",
         "conditions": [
           {
-            "field": "",
-            "value": ""
+            "field": "q_KP_OA_02",
+            "value": "BUSINESS"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_UL_RecipientDataManual",
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "value": "LEGAL"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_FL_RecipientDataManual",
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "value": "PERSON_RF"
           }
         ]
       }
@@ -232,11 +262,29 @@
     ],
     "screenRules": [
       {
-        "nextDisplay": "",
+        "nextDisplay": "s_IP_RecipientDataManual",
         "conditions": [
           {
-            "field": "",
-            "value": ""
+            "field": "q_KP_OA_02",
+            "value": "BUSINESS"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_UL_RecipientDataManual",
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "value": "LEGAL"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_FL_RecipientDataManual",
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "value": "PERSON_RF"
           }
         ]
       }
@@ -257,11 +305,29 @@
     ],
     "screenRules": [
       {
-        "nextDisplay": "",
+        "nextDisplay": "s_IP_RecipientDataManual",
         "conditions": [
           {
-            "field": "",
-            "value": ""
+            "field": "q_KP_OA_02",
+            "value": "BUSINESS"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_UL_RecipientDataManual",
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "value": "LEGAL"
+          }
+        ]
+      },
+      {
+        "nextDisplay": "s_FL_RecipientDataManual",
+        "conditions": [
+          {
+            "field": "q_KP_OA_02",
+            "value": "PERSON_RF"
           }
         ]
       }

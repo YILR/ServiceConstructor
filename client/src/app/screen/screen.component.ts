@@ -103,6 +103,7 @@ export class ScreenComponent implements OnInit, AfterViewInit {
     })
   }
 
+
   private getScreenFromDb(id: any){
     if (id !== undefined) {
       this.dataService.getScreen(id).subscribe((s) => {

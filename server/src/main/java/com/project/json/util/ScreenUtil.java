@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ScreenUtil {
 
-    private static List<ScreenDto> list = Arrays.asList(
+    private static final List<ScreenDto> list = Arrays.asList(
             new ScreenDto("s_main", "INFO", "",
                     Collections.singletonList(new ComponentDto("MainInfo","InfoScr", "")),
                     Collections.singletonList(new ScreenRuleDto("s_Goal", Collections.singletonList(new ConditionDto("MainInfo", ""))))),
@@ -32,13 +32,22 @@ public class ScreenUtil {
                     Collections.singletonList(new ScreenRuleDto("", Collections.singletonList(new ConditionDto("", ""))))),
             new ScreenDto("s_FL_RepresentativeData", "UNIQUE", "Сведения о представителе",
                     Collections.singletonList(new ComponentDto("RepresentativeData", "", "")),
-                    Collections.singletonList(new ScreenRuleDto("", Collections.singletonList(new ConditionDto("", ""))))),
+                    Arrays.asList(
+                            new ScreenRuleDto("s_IP_RecipientDataManual", Collections.singletonList(new ConditionDto("q_KP_OA_02", "BUSINESS"))),
+                            new ScreenRuleDto("s_UL_RecipientDataManual", Collections.singletonList(new ConditionDto("q_KP_OA_02", "LEGAL"))),
+                            new ScreenRuleDto("s_FL_RecipientDataManual", Collections.singletonList(new ConditionDto("q_KP_OA_02", "PERSON_RF"))))),
             new ScreenDto("s_IP_RepresentativeData", "UNIQUE", "Сведения о представителе",
                     Collections.singletonList(new ComponentDto("RepresentativeBusinessmanData", "", "")),
-                    Collections.singletonList(new ScreenRuleDto("", Collections.singletonList(new ConditionDto("", ""))))),
+                    Arrays.asList(
+                            new ScreenRuleDto("s_IP_RecipientDataManual", Collections.singletonList(new ConditionDto("q_KP_OA_02", "BUSINESS"))),
+                            new ScreenRuleDto("s_UL_RecipientDataManual", Collections.singletonList(new ConditionDto("q_KP_OA_02", "LEGAL"))),
+                            new ScreenRuleDto("s_FL_RecipientDataManual", Collections.singletonList(new ConditionDto("q_KP_OA_02", "PERSON_RF"))))),
             new ScreenDto("s_UL_RepresentativeData", "UNIQUE", "Сведения о представителе",
                     Collections.singletonList(new ComponentDto("RepresentativeLegalData", "", "")),
-                    Collections.singletonList(new ScreenRuleDto("", Collections.singletonList(new ConditionDto("", ""))))),
+                    Arrays.asList(
+                            new ScreenRuleDto("s_IP_RecipientDataManual", Collections.singletonList(new ConditionDto("q_KP_OA_02", "BUSINESS"))),
+                            new ScreenRuleDto("s_UL_RecipientDataManual", Collections.singletonList(new ConditionDto("q_KP_OA_02", "LEGAL"))),
+                            new ScreenRuleDto("s_FL_RecipientDataManual", Collections.singletonList(new ConditionDto("q_KP_OA_02", "PERSON_RF"))))),
             new ScreenDto("s_FL_RecipientDataManual", "CUSTOM", "Сведения о заявителе",
                     Collections.singletonList(new ComponentDto("LastName", "", "")),
                     Collections.singletonList(new ScreenRuleDto("", Collections.singletonList(new ConditionDto("f_AuthorityDocument_FL", ""))))),
@@ -51,7 +60,7 @@ public class ScreenUtil {
 
 
     public static List<ScreenDto> checkScreen(List<ScreenDto> screenDtos) {
-        boolean isHave = screenDtos.stream().noneMatch(screenDto -> list.contains(screenDto));
+        boolean isHave = screenDtos.stream().noneMatch(list::contains);
         if (isHave) {
             screenDtos.addAll(0, list);
         }
