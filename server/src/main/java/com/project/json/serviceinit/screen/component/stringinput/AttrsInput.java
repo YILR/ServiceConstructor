@@ -8,7 +8,9 @@ import com.project.json.util.jsonserialize.CustomListSerializer;
 import lombok.Data;
 
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Data
 public class AttrsInput {
@@ -78,21 +80,21 @@ public class AttrsInput {
     }
 
     private void maskMap(String mask) {
-        if (Objects.nonNull(mask)) {
-            String[] masks = mask.trim().split(" ");
-            if (masks.length > 1) {
-                this.mask = Arrays.stream(masks).map(m -> {
-                    if (m.startsWith("\\"))
-                        return "/" + m + "/";
-                    else if (m.isEmpty())
-                        return " ";
-                    return m;
-                }).collect(Collectors.toList());
-            } else {
-                this.mask = new ArrayList<>();
-                this.mask.add(mask);
-            }
-        }
+        Stream<String> stringStream = Stream.of(mask);
+        Pattern pattern = Pattern.compile(" ");
+        this.mask = stringStream.filter(Objects::nonNull)
+                .map(String::trim)
+                .flatMap(pattern::splitAsStream).map(m -> {
+            if (m.startsWith("\\"))
+                return "/" + m + "/";
+            else if (m.isEmpty())
+                return " ";
+            return m;
+        }).collect(Collectors.toList());
+        if(this.mask.isEmpty())
+            this.mask = null;
     }
+
+
 
 }
